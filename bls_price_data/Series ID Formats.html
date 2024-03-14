@@ -1,0 +1,2455 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+
+<head>
+<!-- P2 -->
+
+<title>Series ID Formats</title>
+<!-- ****************************************** Begin META TAGS ********************************************* -->
+	<!-- START include/global/head.stm -->
+	<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOL&subagency=BLS&yt=true"></script>
+
+	<script src="/javascripts/jquery-latest.js"></script>
+	<script src="/javascripts/bls-latest.js"></script>
+	<script src="/javascripts/jquery-tools.js"></script>
+	<script src="/javascripts/jquery-migrate-1.2.1.min.js"></script>
+	
+	<link rel="stylesheet" href="/assets/bootstrap/latest/bootstrap.min.css">
+	<script src="/assets/bootstrap/latest/popper.min.js"></script>
+	<script src="/assets/bootstrap/latest/bootstrap.min.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bls_combined.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bls_content.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bls_tables.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/jquery-tools.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bls_nr.css">
+    <!--[if lt IE 9]>
+		<link href="/stylesheets/ie8-styles.css" media="all" rel="Stylesheet" type="text/css"> 
+	<![endif]-->
+	<!--[if lt IE 8]>
+		<link href="/stylesheets/ie7-styles.css" media="all" rel="Stylesheet" type="text/css"> 
+	<![endif]-->
+	<!--[if lt IE 7]>
+		<link href="/stylesheets/ie6-styles.css" media="all" rel="Stylesheet" type="text/css"> 
+		<style>
+		body {
+			behavior:url(/stylesheets/csshover2.htc);
+		}
+		</style>			
+	<![endif]-->
+	<!--[if IE]>
+		<style>
+		body {
+			font-size: expression(1 / (screen.deviceXDPI / 96) * 84 + '%');
+		}
+		</style>	
+	<![endif]-->
+	<noscript>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bls_noscript.css">
+	</noscript>
+	<!--  This means that the browser will (probably) render the width of the page at the width of its own screen. -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta property="og:image" content="https://www.bls.gov/images/bls_emblem.png" />
+		<style>
+			td.gsc-table-cell-thumbnail{
+			display:none !important;
+			}
+		</style>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+	<link rel="manifest" href="/manifest.json" />
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+	<meta name="theme-color" content="#ffffff" />
+    <!-- END include/global/head.stm -->
+
+	<meta name="agency" content="BLS" />
+	<meta name="audience" content="general" />
+
+<meta name="date" content="8/15/2022">
+<!-- ****************************************** End META TAGS *********************************************** -->
+</head>
+<body>
+<!--no_index_start-->
+<!-- DOL BANNER BEGIN -->
+<!-- DOL BANNER START -->
+<header > <!-- Header is closed at the end of BLS banner -->
+		<a class="skiplink" href="#startcontent">Skip to Content</a>
+
+		<div id="usa-banner-wrapper">
+<div id="usa-banner" class="bootstrap standard-width">
+	<div class="content">
+	<div class="USA-flag-link">
+	<img src="https://www.dol.gov/themes/opa_theme/img/flag-favicon-57.png" alt="U.S. flag">
+	<p>An official website of the United States government 
+	  
+	<button type="button" data-toggle="collapse" data-target="#usaBanner" aria-expanded="false" aria-controls="usaBanner">Here is how you know <span class="oi" data-glyph="chevron-bottom"></span></button>
+	</p>
+	</div>
+		<a href="https://www.dol.gov/" id="dolHolder" class="dolHolder" target="_blank"><img src="https://www.dol.gov/themes/opa_theme/img/logo-primary.svg" alt="Department of Labor Logo"/>  United States Department of Labor</a>
+	</div>
+	
+	<div class="collapse " id="usaBanner">	
+	<div class="row">
+	<div class="col-md-6">
+		<img src="https://www.dol.gov/themes/opa_theme/img/icon-dot-gov.svg" alt="Dot gov">
+
+		<p>
+			<strong>The .gov means it's official.</strong>
+			<br> Federal government websites often end in .gov or .mil. Before sharing sensitive information,
+			make sure you're on a federal government site.
+		</p>
+	</div>
+
+	<div class="col-md-6">
+	<img class="usa-banner-icon usa-media_block-img" src="https://www.dol.gov/themes/opa_theme/img/icon-https.svg" alt="Https">
+	
+		<p>
+			<strong>The site is secure.</strong>
+			<br> The
+			<strong>https://</strong> ensures that you are connecting to the official website and that any
+			information you provide is encrypted and transmitted securely.
+		</p>
+	</div>
+	</div>
+	</div>		
+</div>
+</div>
+
+
+
+<!-- DOL BANNER END -->
+
+
+<!-- DOL BANNER END -->
+<!-- BLS BANNER BEGIN -->
+<div id="bls-banner-wrapper">
+<div id="top"></div>
+		<div class="bootstrap standard-width">
+<div>
+  <div id="bls-banner" class="row">
+    <div id="bls-banner-emblem" class="col-sm-12 col-md-7">
+      <a href="https://www.bls.gov/">U.S. Bureau of Labor Statistics</a>
+    </div>
+    <div id="bls-banner-right" class="col-sm-12 col-md-5 d-none d-md-block">
+      <div id="bls-banner-links"><span class="social-follow"><a title="Follow Us on X, formerly referred to as Twitter" target="_blank" href="https://twitter.com/BLS_gov" aria-label="Follow Us on X, formerly referred to as Twitter">Follow Us</a> </span><span class="social-follow-links"> 
+        <!-- <img src="/images/icons/facebook.png"/>--> 
+        <a target="_blank" href="https://twitter.com/BLS_gov" aria-label="Follow Us on X, formerly referred to as Twitter"><img style="margin-top:-10px;" alt="Follow Us on X, formerly referred to as Twitter" src="/images/icons/twitter.png"/></a> 
+        <!--<img src="/images/icons/linkedin.png"/>--> 
+        </span> | <a href="/schedule/news_release/">Release Calendar</a> | <a href="/blog/" aria-label="Blog page">Blog</a></div>
+      <div id="bls-banner-search1" class="bls-banner-search">
+        <form method="get" action="/search/query">
+		  <label for="bls-banner-search-submit1" class="invisible">Search button</label>
+          <input type="image" src="/images/buttons/search_button_blue_16.png" name="term" id="bls-banner-search-submit1" alt="BLS Search Submit" title="Submit" >
+		  <label for="bls-banner-search-input1" class="invisible">Search:</label>
+          <input name="query" type="text" id="bls-banner-search-input1" value="Search BLS.gov" title="Search Input" onclick="this.value=''; this.onclick = null;">
+
+        </form>
+      </div>
+    </div>
+    <div class="clearfloat"></div>
+  </div>
+</div>
+</div>
+</div>
+</header> <!-- Header is opened at the begining of DOL banner -->
+<!-- BLS BANNER END -->
+<!-- MAIN NAV BEGIN -->
+<div id="main-nav-wrapper">
+	<div id="main-nav-container">
+		<div>
+			<div class="bootstrap standard-width">
+<nav aria-label="top-level navigation menu" class="navbar navbar-expand-md">
+  
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation menu">
+    <span class="navbar-toggler-icon">Menu</span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+
+
+<ul class="nojs navbar-nav mr-auto">
+     <li class="dropdownSearch"><div id="bls-banner-search" class="dropdown-search">
+        <form method="get" action="/search/query">
+		  <label for="bls-banner-search-submit" class="invisible">Search button</label>
+          <input type="image" src="/images/buttons/search_button_blue_20.png" name="term" id="bls-banner-search-submit" alt="BLS Search Submit" title="Submit">
+		  <label for="bls-banner-search-input" class="invisible">Search:</label>
+          <input name="query" type="text" id="bls-banner-search-input" value="Search BLS.gov" title="Search Input" onclick="this.value=''; this.onclick = null;">
+
+        </form>
+      </div>
+		 
+	  <div class="bls-banner-links-mob"><span class="social-follow"><a title="Follow Us on X, formerly referred to as Twitter" target="_blank" href="https://twitter.com/BLS_gov" aria-label="Follow Us on X, formerly referred to as Twitter">Follow Us <img  alt="Follow Us on X, formerly referred to as Twitter referred to as Twitter" src="/images/icons/twitter.png"></a> </span>| <a href="/schedule/news_release/">Release Calendar</a> | <a href="/blog/" aria-label="Blog page">Blog</a></div>
+	</li>
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="https://www.bls.gov/" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown1"><!-- ********************************************** Begin Home Tab LIST ****************************************** -->
+<!-- 1st column -->
+<div class="main-nav-submenu" id="submenu-home">
+	<ul class="main-nav-submenu-inn">
+	
+		<li class="heading"><a href="/bls/about-bls.htm" aria-label="About BLS">About BLS</a></li>
+		<li><a href="/bls/history/home.htm" aria-label="BLS History">History</a></li>	
+		<li><a href="/bls/senior_staff/home.htm" aria-label="Our Leadership">Our Leadership</a></li>
+		<li><a href="/bls/bls_budget_and_performance.htm" aria-label="Budget and Performance">Budget and Performance</a></li>		
+		<li><a href="/bls/faqs.htm" aria-label="Questions and Answers">Questions and Answers</a></li>	
+		<li><a href="/bls/topicsaz.htm" aria-label="A-Z Index">A-Z Index</a></li>	
+		<li><a href="/bls/glossary.htm" aria-label="Glossary">Glossary</a></li>	
+		<li><a href="/jobs/" aria-label="Careers at BLS">Careers at BLS </a></li>	
+		<li><a href="/bls/bls-speakers/" aria-label="BLS Speakers Available">BLS Speakers Available</a></li>
+		<li><a href="/errata/" aria-label="Errata">Errata</a></li>  				
+		<li><a href="/bls/contact.htm" aria-label="Contact BLS">Contact BLS</a></li>	
+
+	</ul>	
+	<!-- 2nd column -->	
+<ul class="main-nav-submenu-inn">	
+		<li class="heading"><a href="/bls/overview.htm" aria-label="Overview of BLS Statistics">Overview of BLS Statistics</a></li>
+		<li><a href="/information-guide/home.htm" aria-label="Guide to Programs & Services">Guide to Programs &amp; Services</a></li>
+		<li><a href="/bls/demographics.htm" aria-label="Demographics Data">Demographics</a></li>
+		<li><a href="/bls/industry.htm" aria-label="Statistics by Industries">Industries</a></li>
+		<li><a href="/bls/business.htm" aria-label="Statistics on Business Costs">Business Costs</a></li>
+		<li><a href="/bls/occupation.htm" aria-label="Statistics by Occupations">Occupations</a></li>
+		<li><a href="/bls/geography.htm" aria-label="Statistics by Geography">Geography</a></li>	
+	
+	</ul>
+	<!-- 3rd column -->
+	<ul class="main-nav-submenu-inn">
+		<li class="heading"><a href="/audience/" aria-label="Resources For">Resources For</a></li>
+		<li><a href="/audience/business.htm" aria-label="Resources for Business Leaders">Business Leaders</a></li>
+		<li><a href="/audience/consumers.htm" aria-label="Resources for Consumers">Consumers</a></li>
+		<li><a href="/audience/developers.htm" aria-label="Developers site">Developers</a></li>
+		<li><a href="/audience/economists.htm" aria-label="Economists or Economic Analyst">Economists</a></li>
+		<li><a href="/audience/investors.htm" aria-label="Resources for Financial Investors">Investors</a></li>
+		<li><a href="/audience/jobseekers.htm" aria-label="Resources for Jobseekers">Jobseekers</a></li>
+		<li><a href="/audience/media.htm" aria-label="Media">Media</a></li>
+		<li><a href="/audience/policy.htm" aria-label="Resources for Public Policymakers">Public Policymakers</a></li>
+		<li><a href="/audience/researcher.htm" aria-label="Researcher">Researcher</a></li>		
+		<li><a href="/audience/students.htm" aria-label="Resources for Students & Teachers">Students &amp; Teachers</a></li>
+		<li><a href="/respondents/" aria-label="Survey Respondents">Survey Respondents</a></li>
+	</ul>
+</div>
+
+<!-- ***********************************************End Home Tab LIST ******************************************** --> 
+
+</div>
+    </li>
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/bls/proghome.htm" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subjects <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown2"><!-- ************************************* Begin SUBJECTS TAB list ****************************************** -->
+<!-- 1st column -->
+<div class="main-nav-submenu" id="submenu-programs">
+	<ul class="main-nav-submenu-inn">
+		<li class="heading"><a href="/bls/inflation.htm" aria-label="Statistics on Inflation & Prices">Inflation &amp; Prices</a></li>
+		<li><a href="/cpi/" aria-label="Consumer Price Index ">Consumer Price Index</a></li>
+		<li><a href="/ppi/" aria-label="Producer Price Indexes">Producer Price Indexes</a></li>
+		<li><a href="/mxp/" aria-label="Import/Export Price Indexes">Import/Export Price Indexes</a></li>
+		<li><a href="/bls/escalation.htm" aria-label="Contract Escalation">Contract Escalation</a></li>
+		<li><a href="/pir/" aria-label="Price Index Research">Price Index Research</a></li>
+		<li class="heading"><a href="/bls/wages.htm" aria-label="Statistics on Pay & Benefits">Pay &amp; Benefits</a></li>
+		<li><a href="/eci/" aria-label="Employment Cost Index">Employment Cost Index</a></li>
+		<li><a href="/ecec/home.htm" aria-label="Employer Costs for Employee Compensation">Employer Costs for Employee Compensation</a></li>
+						<li><a href="/oes/" aria-label="Wage Data by Occupation">Wage Data by Occupation</a></li>
+		<li><a href="/cps/earnings.htm#demographics" aria-label="Earnings by Demographics">Earnings by Demographics</a></li>
+		<li><a href="/ces/" aria-label="Earnings by Industry">Earnings by Industry</a></li>
+		<li><a href="https://www.bls.gov/cew/" aria-label="County Wages">County Wages</a></li>  <!--full path is needed since they have a folder on the data server-->
+		<li><a href="/ebs/" aria-label="Employee Benefits Survey">Benefits</a></li>
+		<li><a href="/mwe/" aria-label="Modeled Wage Estimates">Modeled Wage Estimates</a></li>		
+		<li><a href="/crp/" aria-label="Compensation Research & Program Development">Compensation Research</a></li>
+		<li><a href="/wsp/" aria-label="Strikes & Lockouts">Strikes &amp; Lockouts </a></li>
+		<li><a href="/wrp/" aria-label="Wage Records from Unemployment Insurance">Wage Records from Unemployment Insurance</a></li>
+		<li class="heading"><a href="/ors/" aria-label="Occupational Requirements Survey">Occupational Requirements</a></li>		
+	</ul>
+	<!-- 2nd column -->
+	<ul class="main-nav-submenu-inn">
+		<li class="heading"><a href="/bls/unemployment.htm" aria-label="Statistics on Unemployment">Unemployment</a></li>
+		<li><a href="/cps/" aria-label="National Unemployment Rate">National Unemployment Rate </a></li>
+		<li><a href="/lau/" aria-label="State & Local Unemployment Rates">State &amp; Local Unemployment Rates </a></li>
+		<li><a href="/ers/" aria-label="Unemployment Research">Unemployment Research</a></li>
+		<li class="heading"><a href="/bls/employment.htm" aria-label="Statistics on Employment">Employment</a></li>
+		<li><a href="/ces/" aria-label="National Employment Statistics">National Employment </a></li>
+		<li><a href="/sae/" aria-label="State & Local Employment, Hours, and Earnings">State &amp; Local Employment </a></li>
+		<li><a href="https://www.bls.gov/cew/" aria-label="County Employment">County Employment </a></li> <!--full path is needed since they have a folder on the data server-->
+		<li><a href="/cps/" aria-label="Worker Characteristics">Worker Characteristics </a></li>
+		<li><a href="/air/" aria-label="American Indian Report">American Indian Report</a></li>
+		<li><a href="/emp/" aria-label="Employment Projections">Employment Projections </a></li>
+		<li><a href="/jlt/" aria-label="Job Openings & Labor Turnover Survey">Job Openings &amp; Labor Turnover Survey </a></li>
+		<li><a href="/brs/" aria-label="Business Response Survey">Business Response Survey</a></li>
+		<li><a href="/oes/" aria-label="Employment by Occupation">Employment by Occupation </a></li>
+		<li><a href="/nls/" aria-label="Work Experience Over Time">Work Experience Over Time </a></li>
+		<li><a href="/bdm/" aria-label="Business Employment Dynamics">Business Employment Dynamics </a></li>
+		<li><a href="/fdi/" aria-label="Foreign Direct Investment">Foreign Direct Investment </a></li>
+		<li><a href="/ers/" aria-label="Employment Research and Program Development">Employment Research</a></li>
+		<li class="heading"><a href="/iif/" aria-label="Workplace Injuries, Illnesses, and Fatalities">Workplace Injuries</a></li>
+	</ul>
+	<!-- 3rd column -->
+	<ul class="main-nav-submenu-inn">
+		<li class="heading"><a href="/bls/productivity.htm" aria-label="Productivity Statistics">Productivity</a></li>
+		<li><a href="/productivity/" aria-label="Labor and Total Factor Productivity">Labor and Total Factor Productivity</a></li>
+		<li><a href="/dpr/" aria-label="Productivity Research and Program Development">Productivity Research</a></li>
+		<li class="heading"><a href="/bls/spending.htm" aria-label="Statistics on Spending & Time Use">Spending &amp; Time Use</a></li>
+		<li><a href="/cex/" aria-label="Consumer Expenditures Surveys">Consumer Expenditures </a></li>
+		<li><a href="/tus/" aria-label="How Americans Spend Time Survey">How Americans Spend Time</a></li>			
+		<li class="heading"><a href="/bls/international.htm" aria-label="International Data and Technical Cooperation">International</a></li>
+		<li><a href="/itc/" aria-label="International Technical Cooperation">International Technical Cooperation</a></li>
+		<li><a href="/mxp/" aria-label="Import/Export Price Indexes">Import/Export Price Indexes</a></li>
+		<li class="heading"><a href="/regions/" aria-label="Geographic Information">Geographic Information</a></li>
+		<li><a href="/regions/northeast/" aria-label="Northeast (Boston-New York) Information Office">Northeast (Boston-New York)</a></li>
+		<li><a href="/regions/mid-atlantic/" aria-label="Mid-Atlantic (Philadelphia) Information Office">Mid-Atlantic (Philadelphia)</a></li>
+		<li><a href="/regions/southeast/" aria-label="Southeast (Atlanta) Information Office">Southeast (Atlanta)</a></li>
+		<li><a href="/regions/midwest/" aria-label="Midwest (Chicago) Information Office">Midwest (Chicago)</a></li>
+		<li><a href="/regions/southwest/" aria-label="Southwest (Dallas) Information Office">Southwest (Dallas)</a></li>
+		<li><a href="/regions/mountain-plains/" aria-label="Mountain-Plains (Kansas City) Information Office">Mountain-Plains (Kansas City)</a></li>
+		<li><a href="/regions/west/" aria-label="West (San Francisco) Information Office">West (San Francisco)</a></li>
+	</ul>
+</div>
+<!-- **************************************End SUBJECT AREAS ******************************************** --> 
+	</div>	
+    </li>
+    <li class="nav-item dropdown active"><a class="nav-link dropdown-toggle" href="/data/" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Tools <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown3"><!-- ******************************************** Begin DATA TOOLS LIST ****************************************** -->
+<div class="main-nav-submenu"  id="submenu-data">
+    <ul class="main-nav-submenu-inn">
+        <li class="heading"><a href="/data/tools.htm" aria-label="Data Retrieval Tools Databases, Tables & Calculators by Subject">Data Retrieval Tools</a></li>
+		<li><a href="https://data.bls.gov/cgi-bin/surveymost?bls" aria-label="BLS Popular Series Top Picks">BLS Popular Series</a></li>
+		<li><a href="https://data.bls.gov/cgi-bin/srgate" aria-label="Series Report">Series Report</a></li>
+		<li><a href="/data/home.htm" aria-label="Top Picks, One Screen, Multi-Screen, and Maps" >Top Picks, One Screen, Multi-Screen, and Maps</a></li>
+		<li><a href="https://beta.bls.gov/dataQuery/search" aria-label="Data Finder">Data Finder</a></li>
+		<li><a href="/developers/home.htm" aria-label="Public Data API Programming Interface">Public Data API</a></li>
+
+    </ul>
+    <!-- 2nd column -->
+    <ul class="main-nav-submenu-inn">
+        <li class="heading"><a href="/data/apps.htm" aria-label="Charts and Applications">Charts and Applications</a></li>
+		<li><a href="/charts/home.htm" aria-label="Charts for Economic News Releases">Charts for Economic News Releases</a></li>	
+		<li><a href="/data/inflation_calculator.htm" aria-label="CPI Inflation Calculator">CPI Inflation Calculator</a></li>	
+		<li><a href="https://data.bls.gov/iirc/" aria-label="Injury and Illness Calculator">Injury and Illness Calculator</a></li>		
+		<li><a href="https://data.bls.gov/apps/compensation-comparison-matrix/home.htm" aria-label="Pay Measure Comparison">Pay Measure Comparison</a></li>
+		<li><a href="https://data.bls.gov/apps/demographic-comparison-matrix/home.htm" aria-label="Demographic Data Sources">Demographic Data Sources</a></li>
+		<li><a href="https://data.bls.gov/apps/covid-dashboard/home.htm" aria-label="COVID-19 Economic Trends">COVID-19 Economic Trends</a></li>
+		<li><a href="https://data.bls.gov/apps/industry-productivity-viewer/home.htm" aria-label="Industry Productivity Viewer" >Industry Productivity Viewer</a></li>
+		<li><a href="https://data.bls.gov/cew/apps/data_views/data_views.htm#tab=Tables" aria-label="Employment and Wages Data Viewer">Employment and Wages Data Viewer</a></li>
+		<li><a href="https://data.bls.gov/cew/apps/bls_naics/bls_naics_app.htm" aria-label="Industry Finder from the Quarterly Census of Employment and Wages">Industry Finder from the Quarterly Census of Employment and Wages</a></li>
+	
+    </ul>
+	<!-- 3rd column -->
+	<ul class="main-nav-submenu-inn">
+	    <li class="heading"><a href="/data/tables.htm" aria-label="Customized Tables">Customized Tables</a></li>
+		<li><a href="/eag/eag.us.htm" aria-label="U.S. Economy at a Glance">U.S. Economy at a Glance</a></li>
+		<li><a href="/eag/home.htm" aria-label="Regions, States & Areas at a Glance">Regions, States &amp; Areas at a Glance</a></li>
+		<li><a href="/iag/home.htm" aria-label="Industry at a Glance">Industry at a Glance</a></li>			
+		<li><a href="https://download.bls.gov/pub/time.series/" aria-label="Text Files">Text Files</a></li>
+		<li><a href="/data/#historical-tables" aria-label="Historical News Release Tables">News Release Tables</a></li>
+		
+		<li class="heading"><a href="/bls/moredata.htm" aria-label="More Sources of Data">More Sources of Data</a></li>
+		<li><a href="/rda/home.htm" aria-label="Bureau of Labor Statistics Restricted Data Access">Restricted Data Access</a></li>
+		<li><a href="/data/archived.htm" aria-label="Discontinued Databases">Discontinued Databases </a></li>
+		<li><a href="/help/hlpform1.htm" aria-label="Questions & Answers regarding Bureau of Labor Statistics website data retrieval tools">Questions &amp; Answers</a></li>
+		<li><a href="/help/notice.htm" aria-label="Special Notices">Special Notices </a></li>	
+	</ul>
+</div>
+<!-- *********************************************End DATABASES and TOOLS LIST ******************************************** --></div>
+    </li>
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/opub/" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Publications <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown4"><!-- ********************************************** Begin PUBLICATIONS LIST ****************************************** -->
+<div class="main-nav-submenu"  id="submenu-pubs">    
+    <ul class="main-nav-submenu-inn"> 
+		<li class="heading"><a href="/opub/" aria-label="Latest Publications">Latest Publications</a></li>
+		<li><a href="/opub/ted/" aria-label="The Economics Daily">The Economics Daily</a></li>
+		<li><a href="/opub/mlr/" aria-label="Monthly Labor Review">Monthly Labor Review</a></li>
+		<li><a href="/opub/btn/" aria-label="Beyond the Numbers">Beyond the Numbers</a></li>
+		<li><a href="/spotlight/" aria-label="Spotlight on Statistics">Spotlight on Statistics</a></li>
+		<li><a href="/opub/reports" aria-label="Bureau of Labor Statistics Reports">Reports</a></li>
+		<li><a href="/blog/" aria-label="Commissioner's Corner">Commissioner's Corner</a></li>
+		<li><a href="/video/" aria-label="Videos">Videos</a></li>
+		<li><a href="/careeroutlook/" aria-label="Career Outlook">Career Outlook</a></li>		
+    </ul>
+    <!-- 2nd column -->
+    <ul class="main-nav-submenu-inn">
+		<li><a href="/ooh/" aria-label="Occupational Outlook Handbook">Occupational Outlook Handbook</a></li>
+		<li><a href="/opub/geographic-profile/" aria-label="Geographic Profile">Geographic Profile</a></li>
+		<li><a href="/opub/hom/" aria-label="Handbook of Methods">Handbook of Methods</a></li>
+		<li><a href="/osmr/research-papers/" aria-label="Research Papers - Office of Survey Methods Research">Research Papers</a></li>
+		<li><a href="/opub/copyright-information.htm" aria-label="Copyright Information">Copyright Information</a></li>
+		<li><a href="/opub/opbinfo.htm" aria-label="Contact & Help">Contact &amp; Help </a></li>
+		<li><a href="/opub/update.htm" aria-label="Weekly Update">Weekly Update</a></li>		
+    </ul>
+</div>
+<!-- ***********************************************End PUBLICATIONS LIST ******************************************** --> </div>
+    </li>
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/bls/newsrels.htm" id="navbarDropdown5" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Economic Releases <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown5"><!-- ********************************************** Begin ECONOMIC RELEASES LIST ****************************************** -->
+<!-- 1st column -->
+
+<div class="main-nav-submenu" id="submenu-news">
+    <ul class="main-nav-submenu-inn">
+        <li class="heading"><a href="/bls/newsrels.htm#latest-releases" aria-label="Latest Releases">Latest Releases</a></li>
+		<li class="heading"><a href="/bls/newsrels.htm#major" aria-label="Major Economic Indicators">Major Economic Indicators</a></li>
+		<li class="heading"><a href="/schedule/news_release/" aria-label="Schedules for news Releases">Schedules for news Releases</a></li>
+		<li><a href="/schedule/" aria-label="Release Calendar By Month">By Month</a></li>
+		<li><a href="/schedule/schedule/by_prog/all_sched.htm" aria-label="Release Calendar By News Release">By News Release</a></li>
+		<li><a href="/schedule/news_release/current_year.asp" aria-label="Release Calendar Current Year">Current Year</a></li>
+		<li><a href="/bls/archived_sched.htm" aria-label="Schedules for Selected Bureau of Labor Statistics Economic News Releases for Prior Years">Prior Years</a></li>
+		<li class="heading"><a href="/bls/news-release/" aria-label="Archived News Releases">Archived News Releases</a></li>
+    </ul>
+    <!-- 2nd column -->
+    <ul class="main-nav-submenu-inn">
+        <li class="heading"><a href="/bls/newsrels.htm#OEUS" aria-label="Employment & Unemployment">Employment &amp; Unemployment</a></li>
+		<li><a href="/bls/newsrels.htm#OEUS" aria-label="Monthly">Monthly</a></li>
+		<li><a href="/bls/newsrels.htm#OEUS" aria-label="Quarterly, annual, and other">Quarterly, annual, and other</a></li>
+		<li class="heading"><a href="/bls/newsrels.htm#OPLC" aria-label="Inflation & Prices"> Inflation &amp; Prices</a></li>
+		<li class="heading"><a href="/bls/newsrels.htm#OCWC" aria-label="Pay & Benefits & Workplace Injuries">Pay &amp; Benefits &amp; Workplace Injuries</a></li>
+		<li class="heading"><a href="/bls/newsrels.htm#OPT" aria-label="Productivity & Technology">Productivity &amp; Technology</a></li>
+		<li class="heading"><a href="/bls/newsrels.htm#OEP" aria-label="Employment Projections">Employment Projections</a></li>
+		<li class="heading"><a href="/bls/newsrels.htm#NEWS" aria-label="Regional News Releases">Regional News Releases</a></li>
+    </ul>
+</div></div>
+    </li>
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/k12/" id="navbarDropdown6" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Classroom <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown6"><!-- ********************************************** Begin Students Tab LIST ****************************************** -->
+<div class="main-nav-submenu" id="submenu-students">
+	<ul class="main-nav-submenu-inn">
+		<li class="heading"><a href="/k12/" aria-label="K-12 Student & Teacher Resources">K-12 Student &amp; Teacher Resources</a></li>		
+        <li><a href="/k12/games/" aria-label="Games & Quizzes">Games &amp; Quizzes</a></li>
+		<li><a href="/k12/students/" aria-label="Student's Desk">Student&apos;s Desk</a></li>
+		<li><a href="/k12/teachers/" aria-label="Teacher's Desk">Teacher&apos;s Desk</a></li>
+		<li><a href="/k12/faq.htm" aria-label="Questions & Answers">Questions &amp; Answers</a></li>
+    </ul>
+</div>
+<!-- ***********************************************End Students Tab LIST ******************************************** --></div>
+    </li>
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/beta/" id="navbarDropdown7" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Beta <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown7"><!-- ***********************************************Start BETA LIST ******************************************** -->
+
+<div class="main-nav-submenu" id="submenu-beta">
+  <ul class="main-nav-submenu-inn">
+    <li class="heading"><a href="/beta/redesigned-news-releases.htm" aria-label="Redesigned News Releases">Redesigned News Releases</a></li>
+  </ul>
+</div>
+<!-- ***********************************************End BETA LIST ******************************************** --></div>
+    </li>
+</ul>
+
+
+  </div>
+</nav>
+</div>
+
+		</div>
+		<div class="clearfloat"></div>
+	</div>
+</div>
+
+<!-- MAIN NAV END -->
+
+<!-- WRAPPER TOP BEGIN -->
+	<div id="wrapper-outer" role="main">
+		<div id="wrapper">
+			<div id="container">
+<!-- WRAPPER TOP END -->
+<!-- SUBDOMAIN TITLE TOP BEGIN -->
+				<div id="subdomain-title">
+					<span id="subdomain-title-text" role="heading" aria-level="1">
+					
+<!-- SUBDOMAIN TITLE TOP END -->
+<!-- SUBDOMAIN TITLE BEGIN -->
+<!--no_index_end-->
+
+<a href="/help/">Help &amp; Tutorials</a>
+
+<!--no_index_start-->
+<!-- SUBDOMAIN TITLE END -->
+<!-- SUBDOMAIN TITLE MIDDLE BEGIN -->
+		</span>		
+<div class="article-tools-box-container">
+	<div class="article-tools-box social-media" style="margin: 8px 0px 0px 4px;" >
+       <span class="social-media">
+            SHARE ON:
+           <a href="javascript:void(0);" class="share_facebook"><img alt="share on facebook" src="/images/icons/facebook.png" title="Facebook" /></a>
+           <a href="javascript:void(0);" class="share_twitter"><img alt="share on twitter" src="/images/icons/twitter.png" title="Twitter" /></a>
+           <a href="javascript:void(0);" class="share_linkedin"><img alt="share on linkedin" src="/images/icons/linkedin.png" title="LinkedIn" /></a>
+           <!--<a href="javascript:void(0);" class="share_googleplus"><img src="/images/icons/google.png" title="Google Plus" /></a>-->
+         </span>
+    </div>
+	<div class="article-tools-box" style="margin-right: 4px;">
+		<a href="https://data.bls.gov/cgi-bin/print.pl/help/hlpforma.htm">PRINT:<img src="/images/icons/icon_small_printer.gif" alt="Print" width="16" height="16" style="padding-left:3px"></a>
+	</div>
+</div>
+
+<!-- SUBDOMAIN TITLE MIDDLE END -->
+
+<!-- SUBDOMAIN TITLE BOTTOM BEGIN -->
+    
+	</div> <!-- End Subdomain Title Div -->
+	<div id="subdomain-title-border"></div>
+
+<!-- SUBDOMAIN TITLE BOTTOM END -->
+
+<!-- 1COL LAYOUT COL1 BEGIN -->	
+	<div class="clearfloat" id="startcontent"></div>
+	<div id="main-content-full-width" class="main-content">
+		<div id="bodytext" class="verdana md">
+		
+
+<!-- 1COL LAYOUT COL1 END -->
+
+<!--no_index_end-->
+<!-- MAIN CONTENT BEGIN -->
+
+<h1>Series ID Formats </h1>
+
+<div class="highlight-box-blue in-this-page bold">
+  <span class="heading">On This Page</span>
+  <div class="in-this-page-content">
+  <ul>
+     <li><a href="/help/hlpforma.htm#OEUS">Employment &amp; Unemployment</a></li>
+     <li><a href="/help/hlpforma.htm#OPLC">Inflation &amp; Prices</a></li>
+     <li><a href="/help/hlpforma.htm#SPEND">Spending &amp; Time Use</a></li>
+  </ul>
+  <ul>
+      <li><a href="/help/hlpforma.htm#OCWC">Pay &amp; Benefits</a></li>
+	  <li><a href="/help/hlpforma.htm#WKSTP">Work Stoppages</a></li>
+      <li><a href="/help/hlpforma.htm#OPT">Productivity</a></li>
+  </ul>
+  <ul>
+      <li><a href="/help/hlpforma.htm#OSH">Injuries, Illnesses, &amp; Fatalities</a></li>
+	  <li><a href="/help/hlpforma.htm#ORS">Occupational Requirements</a></li>
+      <li><a href="/help/hlpforma.htm#INT">International</a></li>
+  </ul>
+  </div>
+</div>
+<p>&nbsp;</p>
+
+<!-- BEGIN OEUS SECTION -->
+<h2 id="OEUS">Employment &amp; Unemployment</h2>
+<ul>
+  <li>Nonfarm Payroll Statistics from the Current Employment Statistics (National)
+    <dl>
+      <dd><a href="/help/hlpforma.htm#CE">National Employment, Hours, and Earnings</a></dd>
+      <dd><a href="/help/hlpforma.htm#EE">National Employment, Hours, and Earnings (SIC basis)</a></dd>
+    </dl></li>
+  <li>Nonfarm Payroll Statistics from the Current Employment Statistics (State &amp; Area)
+    <dl>
+      <dd><a href="/help/hlpforma.htm#SM">State and Area Employment, Hours, and Earnings</a></dd>
+      <dd><a href="/help/hlpforma.htm#SA">State and Area Employment, Hours, and Earnings (SIC basis)</a> </dd>
+    </dl></li>
+  <li>Quarterly Census of Employment and Wages
+    <dl>
+      <dd><a href="/help/hlpforma.htm#EN">State and County Employment and Wages from Quarterly Census of Employment and Wages</a></dd>
+      <dd><a href="/help/hlpforma.htm#EW">State and County Employment and Wages from Quarterly Census of Employment and Wages, 1997-2000 (SIC basis)</a></dd>
+    </dl></li>
+  <li><a href="/help/hlpforma.htm#BD">Business Employment Dynamics</a></li>
+  <li><a href="/help/hlpforma.htm#LA">Local Area Unemployment Statistics</a></li>
+  <li><a href="/help/hlpforma.htm#ML">Mass Layoff Statistics</a></li>
+  <li>Job Openings and Labor Turnover Survey
+    <dl>
+      <dd><a href="/help/hlpforma.htm#jt">Job Openings and Labor Turnover Survey</a></dd>
+      <dd><a href="/help/hlpforma.htm#jl">Job Openings and Labor Turnover Survey (SIC basis)</a> </dd>
+    </dl></li>
+  <li><a href="/help/hlpforma.htm#gg">Green Goods and Services</a></li>
+</ul>
+<!-- END OEUS SECTION -->
+
+<!-- BEGIN OPLC SECTION -->
+<h2 id="OPLC">Inflation &amp; Prices</h2>
+<ul>
+  <li>Consumer Price Indexes
+    <dl>
+      <dd><a href="/help/hlpforma.htm#AP">Average Price Data</a></dd>
+      <dd><a href="/help/hlpforma.htm#CU">Consumer Price Index-All Urban Consumers (Current Series)</a></dd>
+      <dd><a href="/help/hlpforma.htm#CW">Consumer Price Index-Urban Wage Earners and Clerical Workers (Current Series)</a></dd>
+      <dd><a href="/help/hlpforma.htm#MU">Consumer Price Index-All Urban Consumers (Old Series)</a></dd>
+      <dd><a href="/help/hlpforma.htm#MW">Consumer Price Index-Urban Wage Earners and Clerical Workers (Old Series)</a></dd>
+      <dd><a href="/help/hlpforma.htm#LI">Department Store Inventory Price Index</a></dd>
+      <dd><a href="/help/hlpforma.htm#su">Chained CPI-All Urban Consumers</a></dd>
+    </dl></li>
+</ul>
+<ul>
+  <li>Producer Price Indexes
+    <dl>
+      <dd><a href="/help/hlpforma.htm#PC">Producer Price Index Industry Data - Current Series</a></dd>
+      <dd><a href="/help/hlpforma.htm#ND">Producer Price Index Industry Data - Discontinued Series (NAICS basis) </a></dd>
+      <dd><a href="/help/hlpforma.htm#PD">Producer Price Index Industry Data - Discontinued Series (SIC basis)</a></dd>
+      <dd><a href="/help/hlpforma.htm#WP">Producer Price Index Commodity Data - Current Series</a></dd>
+      <dd><a href="/help/hlpforma.htm#WD">Producer Price Index Commodity Data - Discontinued Series</a></dd>
+    </dl></li>
+</ul>
+
+<!-- BEGIN SPENDINGS SECTION -->
+<h2 id="SPEND">Spending &amp; Time Use</h2>
+<ul>
+  <li><a href="/help/hlpforma.htm#tu">American Time Use Survey</a></li>
+  <li><a href="/help/hlpforma.htm#CX">Consumer Expenditure Survey</a></li>
+</ul>
+<!-- END SPENDINGS SECTION -->
+
+<!-- BEGIN OCWC SECTION -->
+<h2 id="OCWC">Pay &amp; Benefits</h2>
+<ul>
+  <li>Employee Benefits
+    <dl>
+	  <dd><a href="/help/hlpforma.htm#NB">National Benefits (NB)</a>: active database (NAICS and SOC)</dd>
+      <dd><a href="/help/hlpforma.htm#EB">Employee Benefits (EB)</a>: discontinued (SIC and OCSM)</dd>
+	  </dl></li>
+  <li>Employment Cost Index
+    <dl>
+      <dd><a href="/help/hlpforma.htm#CI">Compensation Index (CI)</a>: active database (NAICS and SOC)</dd>
+	  <dd><a href="/help/hlpforma.htm#EC">Employer Costs (EC)</a>: discontinued database (SIC and OCSM)</dd>
+	  </dl></li>
+  <li>Employer Costs for Employee Compensation
+    <dl>
+	  <dd><a href="/help/hlpforma.htm#CM">Compensation Measures (CM)</a>: active database (NAICS and SOC)</dd>
+      <dd><a href="/help/hlpforma.htm#CC">Compensation Costs (CC)</a>: discontinued database (SIC and OCSM)</dd>
+    </dl></li>
+    <li>Occupational wages
+    <dl>
+	  <dd><a href="/help/hlpforma.htm#WM">Modeled Wage Estimates (WM)</a>: active database (NAICS and SOC)</dd>
+      <dd><a href="/help/hlpforma.htm#NC">National Compensation (NC)</a>: discontinued database (SIC and Census of Population)</dd>
+      <dd><a href="/help/hlpforma.htm#NW">National Compensation (NW)</a>: discontinued database (NAICS and SOC)</dd>
+    </dl></li>
+</ul>
+<!-- END OCWC SECTION -->
+
+<!-- BEGIN WKSTP SECTION -->
+<h2 id="WKSTP">Work Stoppages</h2>
+<ul>
+	<li><a href="/help/hlpforma.htm#WS">Work Stoppages Program</a></li>
+</ul>
+<!-- END WKSTP SECTION -->
+
+<!-- BEGIN OPT SECTION -->
+<h2 id="OPT">Productivity</h2>
+<ul>
+  <li><a href="/help/hlpforma.htm#PR">Major Sector Productivity and Costs</a></li>
+  <li><a href="/help/hlpforma.htm#MP">Major Sector Total Factor Productivity</a></li>
+  <li><a href="/help/hlpforma.htm#IP">Industry Productivity</a></li>
+</ul>
+<!-- END OPT SECTION -->
+
+<!-- BEGIN OSH SECTION -->
+<h2 id="OSH">Workplace Injuries</h2>
+<ul>
+  <li>Injuries, Illnesses, &amp; Fatalities
+    <dl>
+      <dd><a href="/help/hlpforma.htm#IS">Occupational injuries and illnesses: industry data (2014 forward)</a></dd>
+      <dd><a href="/help/hlpforma.htm#FW">Census of Fatal Occupational Injuries (2011 forward)</a></dd>
+      <dd><a href="/help/hlpforma.htm#FI">Census of Fatal Occupational Injuries (2003 - 2010)</a></dd>
+      <dd><a href="/help/hlpforma.htm#CF">Census of Fatal Occupational Injuries (1992 - 2002)</a></dd>
+      <dd><a href="/help/hlpforma.htm#CB">Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics</a></dd>
+      <dd><a href="/help/hlpforma.htm#CS">Nonfatal cases involving days away from work: selected characteristics (2011 - 2020)</a></dd>
+      <dd><a href="/help/hlpforma.htm#CH">Nonfatal cases involving days away from work: selected characteristics (2003 - 2010)</a></dd>
+      <dd><a href="/help/hlpforma.htm#HC">Nonfatal cases involving days away from work: selected characteristics (2002)</a></dd>
+      <dd><a href="/help/hlpforma.htm#CD">Nonfatal cases involving days away from work: selected characteristics
+        (1992 - 2001)</a></dd>
+      <dd><a href="/help/hlpforma.htm#HS">Occupational injuries and illnesses: industry data (pre-1989)</a></dd>
+      <dd><a href="/help/hlpforma.htm#SH">Occupational injuries and illnesses: industry data (1989 - 2001)</a></dd>
+      <dd><a href="/help/hlpforma.htm#SI">Occupational injuries and illnesses: industry data (2002)</a></dd>
+	  <dd><a href="/help/hlpforma.htm#II">Occupational injuries and illnesses: industry data (2003 - 2013)</a> </dd>
+    </dl></li>
+</ul>
+<!-- END OSH SECTION -->
+
+<!-- BEGIN ORS SECTION -->
+<h2 id="ORS">Occupational Requirements</h2>
+<ul>
+  <li><a href="/help/hlpforma.htm#OR">Occupational Requirements Survey</a></li>
+</ul>
+<!-- END ORS SECTION -->
+
+<!-- BEGIN INT SECTION -->
+<h2 id="INT">International</h2>
+<ul>
+  <li><a href="/help/hlpforma.htm#EI">Import and Export Price Indexes</a></li>
+</ul>
+<!-- END INT SECTION -->
+<hr>
+<h2>Employment &amp; Unemployment</h2>
+<h3 id="CE">National Employment, Hours, and Earnings</h3>
+<p><a href="/web/empsit/cesprog.htm" aria-label="National Employment, Hours, and Earnings Survey Overview">Survey Overview</a> The following is a sample format description of the National Employment,
+  Hours, and Earnings series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    CEU0800000003
+	Positions       Value           Field Name
+	1-2             CE              Prefix
+	3               U               <a href="/help/def/ce.htm#seasonally" aria-label="National Employment, Hours, and Earnings Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-11		08000000	<a href="/help/def/ce.htm#supersector" aria-label="National Employment, Hours, and Earnings Supersector">Supersector</a> and <a href="/help/def/ce.htm#industry" aria-label="National Employment, Hours, and Earnings Industry">Industry</a> Codes
+	12-13           03              <a href="/help/def/ce.htm#datatype" aria-label="National Employment, Hours, and Earnings Data Type">Data Type</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/ce/ce.seasonal" aria-label="National Employment, Hours, and Earnings Seasonal Adjustment Codes">Seasonal Adjustment Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ce/ce.supersector" aria-label="National Employment, Hours, and Earnings Super Sector Codes">Super Sector Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ce/ce.industry" aria-label="National Employment, Hours, and Earnings Industry Codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ce/ce.datatype" aria-label="National Employment, Hours, and Earnings Data Type Codes">Data Type Codes</a></li>
+</ul>
+<h3 id="EE">National Employment, Hours, and Earnings (SIC basis)</h3>
+<p><a href=" /web/empsit/cesprog.htm" aria-label="National Employment, Hours, and Earnings (SIC basis) Survey Overview">Survey Overview</a> The following is a sample format description of the National Employment,
+  Hours, and Earnings series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    EES10140001
+	Positions       Value           Field Name
+	1-2             EE              Prefix
+	3               S               <a href="/help/hlpseas.htm" aria-label="National Employment, Hours, and Earnings (SIC basis) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-9             101400          <a href="/help/def/ee.htm#industry" aria-label="National Employment, Hours, and Earnings (SIC basis) Industry Adjustment">Industry</a> Code
+	10-11           01              <a href="/help/def/ee.htm#datatype" aria-label="National Employment, Hours, and Earnings (SIC basis) Data Type">Data Type</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/ee/ee.industry" aria-label="National Employment, Hours, and Earnings (SIC basis) Industry codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ee/ee.datatype" aria-label="National Employment, Hours, and Earnings (SIC basis) Data Type codes">Data Type Codes</a> </li>
+</ul>
+<h3 id="SM">State and Area Employment, Hours, and Earnings</h3>
+<p><a href="/sae/overview.htm" aria-label="State and Area Employment, Hours, and Earnings Survey Overview">Survey Overview</a> The
+  following is a sample format description of the State and Area Employment,
+  Hours, and Earnings series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    SMU19197802023800001
+	Positions       Value           Field Name
+	1-2             SM              Prefix
+	3               U               <a href="/help/def/sm.htm#seasonally" aria-label="State and Area Employment, Hours, and Earnings Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-5             19              <a href="/help/def/sm.htm#state" aria-label="State and Area Employment, Hours, and Earnings State">State</a> Code
+	6-10            19780           <a href="/help/def/sm.htm#area" aria-label="State and Area Employment, Hours, and Earnings Area">Area</a> Code
+	11-18           20238000        <a href="/help/def/sm.htm#supersector" aria-label="State and Area Employment, Hours, and Earnings SuperSector">SuperSector</a> and <a href="/help/def/sa.htm#industry" aria-label="State and Area Employment, Hours, and Earnings Industry">Industry</a> Code
+	19-20           01             	<a href="/help/def/sm.htm#datatype" aria-label="State and Area Employment, Hours, and Earnings Data Type">Data Type</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/sm/sm.state" aria-label="State and Area Employment, Hours, and Earnings State
+    Codes">State
+    Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/sm/sm.area" aria-label="State and Area Employment, Hours, and Earnings Area
+    Codes">Area
+    Codes</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/sm/sm.supersector" aria-label="State and Area Employment, Hours, and Earnings SuperSector
+    Codes">SuperSector
+    Codes</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/sm/sm.industry" aria-label="State and Area Employment, Hours, and Earnings Industry
+    Codes">Industry
+    Codes</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/sm/sm.data_type" aria-label="State and Area Employment, Hours, and Earnings Data Type
+    Codes">Data Type
+    Codes</a> </li>
+</ul>
+<h3 id="SA">State and Area Employment, Hours, and Earnings (SIC basis)</h3>
+<p><a href="/sae/overview.htm" aria-label="State and Area Employment, Hours, and Earnings (SIC basis) Survey Overview">Survey Overview</a> The
+  following is a sample format description of the State and Area Employment,
+  Hours, and Earnings series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    SAS0800002000011
+	Positions       Value           Field Name
+	1-2             SA              Prefix
+	3               S               <a href="/help/hlpseas.htm" aria-label="State and Area Employment, Hours, and Earnings (SIC basis) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-5             08              <a href="/help/def/sa.htm#state" aria-label="State and Area Employment, Hours, and Earnings (SIC basis) State">State</a> Code
+	6-9             0000            <a href="/help/def/sa.htm#area" aria-label="State and Area Employment, Hours, and Earnings (SIC basis) Area">Area</a> Code
+	10-15           200001          <a href="/help/def/sa.htm#industry" aria-label="State and Area Employment, Hours, and Earnings (SIC basis) Industry">Industry</a> Code
+	16              1               <a href="/help/def/sa.htm#datatype" aria-label="State and Area Employment, Hours, and Earnings (SIC basis) Data Type">Data Type</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/sa/sa.state" aria-label="State and Area Employment, Hours, and Earnings (SIC basis) State codes">State
+    Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/sa/sa.area" aria-label="State and Area Employment, Hours, and Earnings (SIC basis) Area codes">Area
+    Codes</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/sa/sa.industry" aria-label="State and Area Employment, Hours, and Earnings (SIC basis) Industry codes">Industry
+    Codes</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/sa/sa.data_type" aria-label="State and Area Employment, Hours, and Earnings (SIC basis) Data Type codes">Data Type
+    Codes</a> </li>
+</ul>
+<h3 id="EN">State and County Employment and Wages from Quarterly Census of
+  Employment and Wages </h3>
+<p><a href="/cew/overview.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Quarterly Census of
+  Employment and Wages series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    ENU04013105111150
+	Positions       Value           Field Name
+	1-2             EN              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-8             04013           <a href="/help/def/en.htm#area" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages Area">Area</a> Code
+	9               1               <a href="/help/def/en.htm#type" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages Data Type">Data Type</a> Code
+	10              0               <a href="/help/def/en.htm#size" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages Size">Size</a> Code
+	11              5               <a href="/help/def/en.htm#owner" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages Ownership">Ownership</a> Code
+	12-17           111150          <a href="/help/def/en.htm#industry" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages Industry">Industry</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a
+        href="/cew/classifications/areas/qcew-area-titles.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages Area codes">Area
+    Codes</a></li>
+  <li><a
+        href="/cew/classifications/datatype/datatype-titles.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages Data codes">Data
+    Type Codes</a></li>
+  <li><a
+        href="/cew/classifications/size/size-titles.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages Size codes">Size
+    Codes</a></li>
+  <li><a
+        href="/cew/classifications/ownerships/ownership-titles.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages Ownership codes">Ownership
+    Codes</a></li>
+  <li><a
+        href="/cew/classifications/industry/industry-titles.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages Industry codes">Industry
+    Codes</a> </li>
+</ul>
+<h3 id="EW">State and County Employment and Wages from Quarterly Census of
+  Employment and Wages, 1997-2000 (SIC basis)</h3>
+<p><a href="/cew/overview.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages, 1997-2000 (SIC basis) Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Quarterly Census of
+  Employment and Wages (SIC) series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    EWU040131050A0115
+	Positions       Value           Field Name
+	1-2             EW              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages, 1997-2000 (SIC basis) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-8             04013           <a href="/help/def/ew.htm#area" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages, 1997-2000 (SIC basis) Area">Area</a> Code
+	9               1               <a href="/help/def/ew.htm#type" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages, 1997-2000 (SIC basis) Data Type">Data Type</a> Code
+	10              0               <a href="/help/def/ew.htm#size" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages, 1997-2000 (SIC basis) Size">Size</a> Code
+	11              5               <a href="/help/def/ew.htm#owner" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages, 1997-2000 (SIC basis) Ownership">Ownership</a> Code
+	12-17           0A0115          <a href="/help/def/ew.htm#industry" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages, 1997-2000 (SIC basis) Industry">Industry</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a
+        href="/cew/classifications/areas/sic-area-titles.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages, 1997-2000 (SIC basis) Area codes">Area
+    Codes</a></li>
+  <li><a
+        href="/cew/classifications/datatype/sic-datatype-titles.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages, 1997-2000 (SIC basis) Data codes">Data
+    Type Codes</a></li>
+  <li><a
+        href="/cew/classifications/size/sic-size-titles.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages, 1997-2000 (SIC basis) Size codes">Size
+    Codes</a></li>
+  <li><a
+        href="/cew/classifications/ownerships/sic-ownership-titles.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages, 1997-2000 (SIC basis) Ownership codes">Ownership
+    Codes</a></li>
+  <li><a
+        href="/cew/classifications/industry/sic-industry-titles.htm" aria-label="State and County Employment and Wages from Quarterly Census of
+  Employment and Wages, 1997-2000 (SIC basis) Industry codes">Industry
+    Codes</a> </li>
+</ul>
+
+<h3 id="BD">Business Employment Dynamics</h3>
+<p><a href="/bdm/bdmover.htm" aria-label="Business Employment Dynamics Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Business Employment
+  Dynamics series identifier:</p>
+<pre>	                      1         2
+	             1234567890123456789012345678
+	Series ID    BDS0000000000000000110101LQ5
+	Positions    Value        Field Name
+	1-2          BD           Prefix
+	3            S            <a href="/help/def/bd.htm#seasonally" aria-label="Business Employment Dynamics Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-13         0000000000	  <a href="/help/def/bd.htm#area" aria-label="Business Employment Dynamics Area">Area</a> Code
+	14-19        000000       <a href="/help/def/bd.htm#Industry" aria-label="Business Employment Dynamics Industry">Industry</a> Code
+	20           0            Unit Analysis Code
+	21           0            <a href="/help/def/bd.htm#Data_Element" aria-label="Business Employment Dynamics Data Element">Data Element</a> Code
+	22-23        01           Size Class Code
+	24-25        01           <a href="/help/def/bd.htm#Data_Class" aria-label="Business Employment Dynamics Data Class">Data Class</a> Code
+	26           L            <a href="/help/def/bd.htm#Rate/Level" aria-label="Business Employment Dynamics Rate/Level">Rate/Level</a> Code
+	27           Q            <a href="/help/def/bd.htm#record%20type" aria-label="Business Employment Dynamics Record Type">Record Type</a> Code
+	28           5            Ownership Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/bd/bd.seasonal" aria-label="Business Employment Dynamics Seasonal
+    Adjustment codes">Seasonal
+    Adjustment</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/bd/bd.state" aria-label="Business Employment Dynamics Area codes">Area</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/bd/bd.industry" aria-label="Business Employment Dynamics Industry codes">Industry</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/bd/bd.dataelement" aria-label="Business Employment Dynamics Data
+    Element codes">Data
+    Element</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/bd/bd.dataclass" aria-label="Business Employment Dynamics Data
+    Class codes">Data
+    Class</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/bd/bd.ratelevel" aria-label="Business Employment Dynamics Rate/Level codes">Rate/Level</a> </li>
+</ul>
+<h3 id="LA">Local Area Unemployment Statistics </h3>
+<p><a href="/lau/lauov.htm" aria-label="Local Area Unemployment Statistics Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Local Area Unemployment
+  Statistics' series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    LAUCN281070000000003
+	Positions    Value            Field Name
+	1-2          LA               Prefix
+	3            U                <a href="/help/hlpseas.htm" aria-label="Local Area Unemployment Statistics Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-18         CN2810700000000  <a href="/help/def/la.htm#area" aria-label="Local Area Unemployment Statistics Area">Area</a> Code
+	19-20        03               <a href="/help/def/la.htm#measure" aria-label="Local Area Unemployment Statistics Measure">Measure</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/la/la.area_type" aria-label="Local Area Unemployment Statistics Area Type
+    Code">Area Type
+    Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/la/la.area" aria-label="Local Area Unemployment Statistics Area
+    Code">Area
+    Codes</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/la/la.measure" aria-label="Local Area Unemployment Statistics Measure
+    Code">Measure
+    Codes</a> </li>
+</ul>
+<h3 id="ML">Mass Layoff Statistics </h3>
+<p><a href="/mls/mlsover.htm" aria-label="Mass Layoff Statistics Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Mass Layoff Statistics
+  series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    MLUMS00NN0001003
+	Positions       Value           Field Name
+	1-2             ML              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Mass Layoff Statistics Survey Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4               M               <a href="/help/def/ml.htm#data_series" aria-label="Mass Layoff Statistics Survey Data Series">Data Series</a> Code
+	5-7             S00             <a href="/help/def/ml.htm#states_and/or_regions_and_divisions" aria-label="Mass Layoff Statistics Survey States and/or Regions and Divisions">States and/or Regions and Divisions</a> Code
+	8            	N             	<a href="/help/def/ml.htm#industry_base" aria-label="Mass Layoff Statistics Survey Industry Base">Industry Base</a> Code
+	9-13            N0001           <a href="/help/def/ml.htm#industry_reason_demographics" aria-label="Mass Layoff Statistics Survey Industry, Reason, Demographic">Industry, Reason, Demographic</a> Code
+	14-16           003             <a href="/help/def/ml.htm#data_element" aria-label="Mass Layoff Statistics Survey Data Element">Data Element</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/ml/ml.dataseries" aria-label="Mass Layoff Statistics Survey Data
+    Series Codes">Data
+    Series Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ml/ml.srd" aria-label="Mass Layoff Statistics Survey States
+    and/or Regions and Divisions Codes">States
+    and/or Regions and Divisions Codes</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/ml/ml.industrybase" aria-label="Mass Layoff Statistics Survey Industry
+    Base Codes">Industry
+    Base</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/ml/ml.irc" aria-label="Mass Layoff Statistics Survey Industry,
+    Reason, Demographic Codes">Industry,
+    Reason, Demographic Codes</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/ml/ml.dataelement" aria-label="Mass Layoff Statistics Survey Data
+    Element CodesCodes">Data
+    Element Codes</a> </li>
+</ul>
+<h3 id="jt">Job Openings and Labor Turnover Survey</h3>
+<p><a href="/jlt/jltover.htm" aria-label="Job Openings and Labor Turnover Survey Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Job Openings and Labor
+  Turnover Survey Statistics series identifier:</p>
+<pre>	                      1         2         3
+	             12345678901234567890123456790
+	Series ID    JTU110099000000000HIL
+	Positions       Value           Field Name
+	1-2             JT              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Job Openings and Labor Turnover Survey Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-9             110099          <a href="/help/def/jt.htm#industry" aria-label="Job Openings and Labor Turnover Survey Industry">Industry</a> Code
+	10-11          	00              <a href="/help/def/jt.htm#state" aria-label="Job Openings and Labor Turnover Survey State">State</a> Code
+	12-16           00000           <a href="/help/def/jt.htm#area" aria-label="Job Openings and Labor Turnover Survey Area">Area</a> Code
+	17-18           00              <a href="/help/def/jt.htm#size_class" aria-label="Job Openings and Labor Turnover Survey Size Class">Size Class</a> Code
+	19-20           HI              <a href="/help/def/jt.htm#data_element" aria-label="Job Openings and Labor Turnover Survey Data Element">Data Element</a> Code
+	21              L               <a href="/help/def/jt.htm#rate/level" aria-label="Job Openings and Labor Turnover Survey Rate/Level">Rate/Level</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/jt/jt.industry" aria-label="Job Openings and Labor Turnover Survey Industry codes">Industry</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/jt/jt.state" aria-label="Job Openings and Labor Turnover Survey State codes">State</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/jt/jt.area" aria-label="Job Openings and Labor Turnover Survey Area codes">Area</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/jt/jt.sizeclass" aria-label="Job Openings and Labor Turnover Survey Size Class codes">Size Class</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/jt/jt.dataelement" aria-label="Job Openings and Labor Turnover Survey Data Element Codes">Data Element Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/jt/jt.ratelevel" aria-label="Job Openings and Labor Turnover Survey Data Rate/Level codes">Rate/Level Codes</a></li>
+</ul>
+
+<h3 id="JL">Job Openings and Labor Turnover Survey (SIC basis)</h3>
+<p><a href="/jlt/jltover.htm" aria-label="Job Openings and Labor Turnover Survey (SIC basis) Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Job Openings and Labor
+  Turnover Survey Statistics series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    JLU00000000HIL
+	Positions       Value           Field Name
+	1-2             JL              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Job Openings and Labor Turnover Survey (SIC basis) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-9             000000          <a href="/help/def/jl.htm#industry" aria-label="Job Openings and Labor Turnover Survey (SIC basis) Industry">Industry</a> Code
+	10-11          	00             	<a href="/help/def/jl.htm#region" aria-label="Job Openings and Labor Turnover Survey (SIC basis) Region">Region</a> Code
+	12-13           HI              <a href="/help/def/jl.htm#data_element" aria-label="Job Openings and Labor Turnover Survey (SIC basis) Data Element">Data Element</a> Code
+	14              L               <a href="/help/def/jl.htm#rate/level" aria-label="Job Openings and Labor Turnover Survey (SIC basis) Rate/Level">Rate/Level</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/jl/jl.industry" aria-label="Job Openings and Labor Turnover Survey (SIC basis) Industry codes">Industry</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/jl/jl.region" aria-label="Job Openings and Labor Turnover Survey (SIC basis) Region codes">Region</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/jl/jl.dataelement" aria-label="Job Openings and Labor Turnover Survey (SIC basis) Data
+    Element Codes">Data
+    Element Codes</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/jl/jl.ratelevel" aria-label="Job Openings and Labor Turnover Survey (SIC basis) Rate/Level Codes">Rate/Level
+    Codes</a> </li>
+</ul>
+
+<h3 id="gg">Green Goods and Services</h3>
+<p><a href="/ggs/ggsoverview.htm" aria-label="Green Goods and Services Survey Overview">Survey Overview</a>:
+  The sample format description of the Green Goods and Services series
+  identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    GGUQO100000000000050010L
+	Positions       Value           Field Name
+	1-2             GG              <a href="/help/def/gg.htm#prefix" aria-label="Green Goods and Services Prefix">Prefix</a>
+	3               U               <a href="/help/def/gg.htm#seasonal" aria-label="Green Goods and Services Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4               Q               <a href="/help/def/gg.htm#periodicity" aria-label="Green Goods and Services Periodicity">Periodicity</a> Code
+	5-9             00000           <a href="/help/def/gg.htm#areatype" aria-label="Green Goods and Services Area">Area</a> Code
+	10-15           000000          <a href="/help/def/gg.htm#industry" aria-label="Green Goods and Services Industry">Industry</a> Code
+	16-17           00              Future Use
+	18              5               <a href="/help/def/gg.htm#ownership" aria-label="Green Goods and Services Ownership">Ownership</a> Code
+	19              0               Future Use
+	20-21           01              <a href="/help/def/gg.htm#data_element" aria-label="Green Goods and Services Data Element">Data Element</a> Code
+	22              0               Future Use
+	23              L               <a href="/help/def/gg.htm#rate/level" aria-label="Green Goods and Services Rate/Level">Rate/Level</a> Code
+	</pre>
+<p>&nbsp;</p>
+<h2>Inflation &amp; Prices</h2>
+<h3 id="AP">Average Price Data</h3>
+<p><a href="/cpi/overview.htm" aria-label="Average Price Data Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Average Price series
+  identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    APU000070111
+	Positions       Value           Field Name
+	1-2             AP              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Average Price Data Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-7             0000            <a href="/help/def/ap.htm#area" aria-label="Average Price Data Seasonal Adjustment">Area</a> Code
+	8-13            701111          <a href="/help/def/ap.htm#item" aria-label="Average Price Data Item">Item</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/ap/ap.area" aria-label="Average Price Data Area
+    Codes">Area
+    Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ap/ap.item" aria-label="Average Price Data Item
+    Codes">Item
+    Codes</a> </li>
+</ul>
+<h3 id="CU">Consumer Price Index - All Urban Consumers</h3>
+<p><a href="/cpi/overview.htm" aria-label="Consumer Price Index - All Urban Consumers Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Consumer Price Index - All
+  Urban Consumers series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    CUUR0000SA0L1E
+	Positions       Value           Field Name
+	1-2             CU              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Consumer Price Index - All Urban Consumers Not Seasonal Adjustment">Not Seasonal Adjustment</a> Code
+	4               R               <a href="/help/def/cu.htm#periodicity" aria-label="Consumer Price Index - All Urban Consumers Periodicity">Periodicity</a> Code
+	5-8             0000            <a href="/help/def/cu.htm#area" aria-label="Consumer Price Index - All Urban Consumers Area">Area</a> Code
+	9               S               <a href="/help/def/cu.htm#base" aria-label="Consumer Price Index - All Urban Consumers Base">Base</a> Code
+	10-16           A0L1E           <a href="/help/def/cu.htm#item" aria-label="Consumer Price Index - All Urban Consumers Item">Item</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/cu/cu.area" aria-label="Consumer Price Index - All Urban Consumers Area
+    Codes">Area
+    Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cu/cu.item" aria-label="Consumer Price Index - All Urban Consumers Item
+    Codes">Item
+    Codes</a> </li>
+</ul>
+<h3 id="CW">Consumer Price Index - Urban Wage Earners and Clerical
+  Workers</h3>
+<p><a href="/cpi/overview.htm" aria-label="Consumer Price Index - Urban Wage Earners and Clerical
+  Workers Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Consumer Price Index -
+  Urban Wage Earners and Clerical Workers series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    CWSR0000SA111211
+	Positions       Value           Field Name
+	1-2             CW              Prefix
+	3               S               <a href="/help/hlpseas.htm" aria-label="Consumer Price Index - Urban Wage Earners and Clerical
+  Workers Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4               R               <a href="/help/def/cw.htm#periodicity" aria-label="Consumer Price Index - Urban Wage Earners and Clerical
+  Workers Periodicity">Periodicity</a> Code
+	5-8             0000            <a href="/help/def/cw.htm#area" aria-label="Consumer Price Index - Urban Wage Earners and Clerical
+  Workers Area">Area</a> Code
+	9               S               <a href="/help/def/cw.htm#base" aria-label="Consumer Price Index - Urban Wage Earners and Clerical
+  Workers Base">Base</a> Code
+	10-16           A111211         <a href="/help/def/cw.htm#item" aria-label="Consumer Price Index - Urban Wage Earners and Clerical
+  Workers Item">Item</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/cw/cw.area" aria-label="Consumer Price Index - Urban Wage Earners and Clerical
+  Area
+    Codes">Area
+    Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cw/cw.item" aria-label="Consumer Price Index - Urban Wage Earners and Clerical
+  Item
+    Codes">Item
+    Codes</a> </li>
+</ul>
+<h3 id="MU">Consumer Price Index - All Urban Consumers (Old Series)</h3>
+<p><a href="/cpi/overview.htm" aria-label="Consumer Price Index - All Urban Consumers (Old Series) Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Consumer Price Index - All
+  Urban Consumers series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    MUSR0000SA111211
+	Positions       Value           Field Name
+	1-2             MU              Prefix
+	3               S               <a href="/help/hlpseas.htm" aria-label="Consumer Price Index - All Urban Consumers (Old Series) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4               R               <a href="/help/def/mu.htm#periodicity" aria-label="Consumer Price Index - All Urban Consumers (Old Series) Periodicity">Periodicity</a> Code
+	5-8             0000            <a href="/help/def/mu.htm#area" aria-label="Consumer Price Index - All Urban Consumers (Old Series) Area">Area</a> Code
+	9               S               <a href="/help/def/mu.htm#base" aria-label="Consumer Price Index - All Urban Consumers (Old Series) Base">Base</a> Code
+	10-16           A111211         <a href="/help/def/mu.htm#item" aria-label="Consumer Price Index - All Urban Consumers (Old Series) Item">Item</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/mu/mu.area" aria-label="Consumer Price Index - All Urban Consumers (Old Series) Area codes">Area
+    Codes </a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/mu/mu.item" aria-label="Consumer Price Index - All Urban Consumers (Old Series) Item codes">Item
+    Codes </a></li>
+</ul>
+<h3 id="MW">Consumer Price Index - Urban Wage Earners and Clerical Workers (Old Series)</h3>
+<p><a href="/cpi/overview.htm" aria-label="Consumer Price Index - Urban Wage Earners and Clerical Workers (Old Series) Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Consumer Price Index -
+  Urban Wage Earners and Clerical Workers series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    MWSR0000SA111211
+	Positions       Value           Field Name
+	1-2             MW              Prefix
+	3               S               <a href="/help/hlpseas.htm" aria-label="Consumer Price Index - Urban Wage Earners and Clerical Workers (Old Series) Seasonal Adjustment Code">Seasonal Adjustment</a> Code
+	4               R               <a href="/help/def/mw.htm#periodicity" aria-label="Consumer Price Index - Urban Wage Earners and Clerical Workers (Old Series) Periodicity Code">Periodicity</a> Code
+	5-8             0000            <a href="/help/def/mw.htm#area" aria-label="Consumer Price Index - Urban Wage Earners and Clerical Workers (Old Series) Area Code">Area</a> Code
+	9               S               <a href="/help/def/mw.htm#base" aria-label="Consumer Price Index - Urban Wage Earners and Clerical Workers (Old Series) Base Code">Base</a> Code
+	10-16           A111211         <a href="/help/def/mw.htm#item" aria-label="Consumer Price Index - Urban Wage Earners and Clerical Workers (Old Series) Item Code">Item</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/mw/mw.area" aria-label="Consumer Price Index - Urban Wage Earners and Clerical Workers (Old Series) Area">Area
+    Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/mw/mw.item" aria-label="Consumer Price Index - Urban Wage Earners and Clerical Workers (Old Series) Item">Item
+    Codes</a> </li>
+</ul>
+<h3 id="LI">Department Store Inventory Price Index</h3>
+<p><a href="/cpi/overview.htm" aria-label="Department Store Inventory Price Index Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Department Store Inventory
+  Price Index series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    LIUR0000SL00019
+	Positions       Value           Field Name
+	1-2             LI              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Department Store Inventory Price Index Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4               R               <a href="/help/def/li.htm#periodicity" aria-label="Department Store Inventory Price Index Periodicity">Periodicity</a> Code
+	5-8             0000            <a href="/help/def/li.htm#area" aria-label="Department Store Inventory Price Index Area">Area</a> Code
+	9               S               <a href="/help/def/li.htm#base" aria-label="Department Store Inventory Price Index Base">Base</a> Code
+	10-15           L00019          <a href="/help/def/li.htm#item" aria-label="Department Store Inventory Price Index Item">Item</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/li/li.area" aria-label="Department Store Inventory Price Index Area codes">Area
+    Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/li/li.item" aria-label="Department Store Inventory Price Index Item codes">Item
+    Codes</a></li>
+</ul>
+<h3 id="su">Chained CPI-All Urban Consumers</h3>
+<p><a href="/cpi/overview.htm" aria-label="Chained CPI-All Urban Consumers Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Department Store Inventory
+  Price Index series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    SUUR0000SA0
+	Positions       Value           Field Name
+	1-2             SU              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Chained CPI-All Urban Consumers Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4               R               Periodicity Code
+	5-8             0000            <a href="/help/def/su.htm#area" aria-label="Chained CPI-All Urban Consumers Area">Area</a> Code
+	9-11            SA0             <a href="/help/def/su.htm#item" aria-label="Chained CPI-All Urban Item">Item</a> Code
+
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/su/su.area" aria-label="Chained CPI-All Area
+    Codes">Area
+    Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/su/su.item" aria-label="Chained CPI-All Item
+    Codes">Item
+    Codes</a> </li>
+</ul>
+<h3 id="PC">Producer Price Index Industry Data - Current Series</h3>
+<p><a href="/ppi/ppiover.htm" aria-label="Producer Price Index Industry Data - Current Series Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Producer Price Index
+  Industry Data - Current series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    PCU22112222112241
+	Positions       Value           Field Name
+	1-2             PC              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Producer Price Index Industry Data - Current Series Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-9             221122          <a href="/help/def/pc.htm#industry" aria-label="Producer Price Index Industry Data - Current Series Industry">Industry</a> Code
+	10-19           22112241        <a href="/help/def/pc.htm#product" aria-label="Producer Price Index Industry Data - Current Series Product">Product</a> Code
+	</pre>
+<p>For higher-level index aggregations (NAICS industry groups whose length
+  is less than 6 digits) will use hyphens as place holders. For example:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    PCU2211--2211--
+	Positions       Value           Field Name
+	1-2             PC              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Producer Price Index Industry Data - Current Seasonal Adjustment code">Seasonal Adjustment</a> Code
+	4-9             2211--          <a href="/help/def/pc.htm#industry" aria-label="Producer Price Index Industry Data - Current Industry code">Industry</a> Code
+	10-15           2211--          <a href="/help/def/pc.htm#product" aria-label="Producer Price Index Industry Data - Current Product code">Product</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/pc/pc.industry" aria-label="Producer Price Index Industry Data - Current Industry codes">Industry
+    Codes</a></li>
+  <li><a
+        href="https://download.bls.gov/pub/time.series/pc/pc.product" aria-label="Producer Price Index Industry Data - Current Product codes">Product
+    Codes</a> </li>
+
+</ul>
+<h3 id="ND">Producer Price Index Industry Data - Discontinued Series (NAICS
+  basis) </h3>
+<p><a href="/ppi/ppiover.htm" aria-label="Producer Price Index Industry Data - Discontinued Series (NAICS
+  basis) Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Producer Price Index
+  Industry Data - Discontinued (NAICS basis) series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID     NDU1051111051112345
+	Positions       Value           Field Name
+	1-2             ND              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Producer Price Index Industry Data - Discontinued Series (NAICS
+  basis) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-7             105111          <a href="/help/def/nd.htm#industry" aria-label="Producer Price Index Industry Data - Discontinued Series (NAICS
+  basis) Industry">Industry</a> Code
+	10-13           1051112345      <a href="/help/def/nd.htm#product" aria-label="Producer Price Index Industry Data - Discontinued Series (NAICS
+  basis) Product">Product</a> Code
+	</pre>
+<p>For higher-level index aggregations (NAICS industry groups whose length
+  is less than 6 digits) will use hyphens as place holders. For example:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    NDU105---105---
+	Positions       Value           Field Name
+	1-2             ND              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Producer Price Index Industry Data - Discontinued Series (NAICS
+  basis) Seasonal Adjustment Code">Seasonal Adjustment</a> Code
+	4-7             105---          <a href="/help/def/nd.htm#industry" aria-label="Producer Price Index Industry Data - Discontinued Series (NAICS
+  basis) Industry Code">Industry</a> Code
+	10-13           105---          <a href="/help/def/nd.htm#product" aria-label="Producer Price Index Industry Data - Discontinued Series (NAICS
+  basis) Product Code">Product</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/nd/nd.industry" aria-label="Producer Price Index Industry Data - Discontinued Series (NAICS basis) Industry Codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nd/nd.product" aria-label="Producer Price Index Industry Data - Discontinued Series (NAICS basis) Product Codes">Product Codes</a></li>
+</ul>
+<h3 id="PD">Producer Price Index Industry Data - Discontinued Series (SIC
+  basis)</h3>
+<p><a href="/ppi/ppiover.htm" aria-label="Producer Price Index Industry Data - Discontinued Series (SIC
+  basis) Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Producer Price Index
+  Industry Data - Discontinued (SIC basis) series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    PDU1031#214
+	Positions       Value           Field Name
+	1-2             PD              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Producer Price Index Industry Data - Discontinued Series (SIC
+  basis) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-7             1031            <a href="/help/def/pd.htm#industry" aria-label="Producer Price Index Industry Data - Discontinued Series (SIC
+  basis) Industry">Industry</a> Code
+	8-11            #214            <a href="/help/def/pd.htm#product" aria-label="Producer Price Index Industry Data - Discontinued Series (SIC
+  basis) Product">Product</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access the following for a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/pd/pd.industry" aria-label="Producer Price Index Industry Data - Discontinued Series (SIC basis) Industry Codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/pd/pd.product" aria-label="Producer Price Index Industry Data - Discontinued Series (SIC basis) Product Codes">Product Codes</a></li>
+</ul>
+<h3 id="WP">Producer Price Index Commodity Data - Current Series</h3>
+<p><a href="/ppi/ppiover.htm" aria-label="Producer Price Index Commodity Data - Current Series Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Producer Price Index Commodity Data - Current series identifiers:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    WPS141101
+	Positions       Value           Field Name
+	1-2             WP              Prefix
+	3               S               <a href="/help/hlpseas.htm" aria-label="Producer Price Index Commodity Data - Current Series Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-5             14              <a href="/help/def/wp.htm#group" aria-label="Producer Price Index Commodity Data - Current Series Group">Group</a> Code
+	6-14            1101            <a href="/help/def/wp.htm#item" aria-label="Producer Price Index Commodity Data - Current Series Item">Item</a> Code
+	</pre>
+<p>For higher-level index aggregations (e.g. <a href="/ppi/fdidaggregation.htm">Final Demand-Intermediate Demand</a> system indices) will use alpha-numeric group code. For example:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    WPSFD49116
+	Positions       Value           Field Name
+	1-2             WP              Prefix
+	3               S               <a href="/help/hlpseas.htm" aria-label="Producer Price Index Commodity Data - Current Series Item code">Seasonal Adjustment</a> Code
+	4-5             FD              <a href="/help/def/wp.htm#group" aria-label="Producer Price Index Commodity Data - Current Series group code">Group</a> Code
+	6-14            49116           <a href="/help/def/wp.htm#item" aria-label="Producer Price Index Commodity Data - Current Series Item code">Item</a> Code
+	</pre>
+<p>For <a href="/ppi/industryinputsintro.htm">Inputs to Industry</a> indices, other than construction indices, Bureau of Economic Analysis industry codes are utilized with zero as placeholders for codes less than 6 digits. For example:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    WPUIP32610012
+	Positions       Value           Field Name
+	1-2             WP              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Producer Price Index Commodity Data - Current Series Seasonal Adjustment codes">Seasonal Adjustment</a> Code
+	4-5             IP              <a href="/help/def/wp.htm#group" aria-label="Producer Price Index Commodity Data - Current Series Group codes">Group</a> Code
+	6-11            326100          <a href="/help/def/wp.htm#item" aria-label="Producer Price Index Commodity Data - Current Series Item codes (part 1)">Item</a> Code (part 1) and BEA code
+	12-14           12              <a href="/help/def/wp.htm#item" aria-label="Producer Price Index Commodity Data - Current Series Item codes (part 2)">Item</a> Code (part 2)
+	</pre>
+
+<p>To assist you in formatting series IDs, access the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/wp/wp.group" aria-label="Producer Price Index Commodity Data - Current Series Group codes">Group Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/wp/wp.item" aria-label="Producer Price Index Commodity Data - Current Series Item codes">Item Codes</a></li>
+</ul>
+<h3 id="WD">Producer Price Index Commodity Data - Discontinued Series</h3>
+<p><a href="/ppi/ppiover.htm" aria-label="Producer Price Index Commodity Data - Discontinued Series Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Producer Price Index
+  Commodities Discontinued series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    WDU062201
+	Positions       Value           Field Name
+	1-2             WD              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Producer Price Index Commodity Data - Discontinued Series Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-5             06              <a href="/help/def/wd.htm#group" aria-label="Producer Price Index Commodity Data - Discontinued Series Group">Group</a> Code
+	6-11            2201            <a href="/help/def/wd.htm#item" aria-label="Producer Price Index Commodity Data - Discontinued Series Item">Item</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/wd/wd.group" aria-label="Producer Price Index Commodity Data - Discontinued Series Group code">Group Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/wd/wd.item" aria-label="Producer Price Index Commodity Data - Discontinued Series Item code">Item Codes</a> </li>
+</ul>
+<p>&nbsp;</p>
+<h2>Spending &amp; Time Use</h2>
+
+<h3 id="tu">American Time Use Survey </h3>
+<p><a href="/tus/overview.htm" aria-label="American Time Use Survey Overview">Survey Overview</a> The following is a sample format description of the American Time Use Survey series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    TUU10101AA01011987
+	Positions       Value           Field Name
+	1-2             TU              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="American Time Use Survey Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-8             10101           <a href="/help/def/tu.htm#estimate" aria-label="American Time Use Survey Type of Estimate">Type of Estimate</a> Code
+	9               A               <a href="/help/def/tu.htm#time" aria-label="American Time Use Survey Time Period">Time Period</a> Code
+	10              A               All ATUS data series have the character "A."
+        11-12           01	        <a href="/help/def/tu.htm#number" aria-label="American Time Use Survey Number of years">Number of years</a> Code
+	13-18           011987          <a href="/help/def/tu.htm#character" aria-label="American Time Use Survey Character">Character</a> Code
+</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="/tus/estimate_code.htm" aria-label="American Time Use Survey Type of Estimate Code">Type of Estimate Code</a></li>
+  <li><a href="/tus/time_period.htm" aria-label="American Time Use Survey Time Period Code">Time Period Code</a></li>
+  <li><a href="/tus/number_years.htm" aria-label="American Time Use Survey Time Number of Years Code">Number of Years Code</a></li>
+  <li>Character Code</li>
+</ul>
+
+<h3 id="CX">Consumer Expenditure Survey</h3>
+<p><a href="/cex/csxovr.htm" aria-label="American Time Use Survey Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Consumer Expenditure
+  Survey series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    CXUMENBOYSLB0101M
+	Positions       Value           Field Name
+	1-2             CX              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="American Time Use Survey Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-11            MENBOYS         <a href="/help/def/cx.htm#item" aria-label="American Time Use Survey Item">Item</a> Code
+        12-15	   	LB01	        <a href="/help/def/cx.htm#demographics" aria-label="American Time Use Survey Demographics">Demographics</a> Code
+        16-17           01	        <a href="/help/def/cx.htm#characteristics" aria-label="American Time Use Survey Characteristics">Characteristics</a> Code
+	18              M               Process Code
+</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/cx/cx.item" aria-label="American Time Use Survey Item
+    Codes">Item Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cx/cx.demographics" aria-label="American Time Use Survey Demographics Codes">Demographics Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cx/cx.characteristics" aria-label="American Time Use Survey Characteristics Codes">Characteristics Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cx/cx.process" aria-label="American Time Use Survey Process
+    Codes">Process Codes</a></li>
+</ul>
+<p>&nbsp;</p>
+
+<h2>Pay &amp; Benefits</h2>
+<!-- START NB SURVEY -->
+<h3 id="NB">National Benefits (NAICS and SOC)</h3>
+<p><a href="/ncs/summary.htm" aria-label="National Benefits (NAICS and SOC)">Survey Overview</a> The following is a sample format description of the National Benefits series identifier:</p>
+<pre>	                      1         2
+	             1234567890123456789012345
+	Series ID    NBU20530000000000033030
+	Positions       Value           Field Name
+	1-2             NB              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="National Benefits (NAICS and SOC) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4               2               <a href="/help/def/nb.htm#Ownership" aria-label="National Benefits (NAICS and SOC) Ownership">Ownership</a> Code
+	5-6             05              <a href="/help/def/nb.htm#Estimate" aria-label="National Benefits (NAICS and SOC) Estimate">Estimate</a> Code
+	7-10            3000            <a href="/help/def/nb.htm#Industry" aria-label="National Benefits (NAICS and SOC) Industry">Industry</a> Code
+	11-16           000000          <a href="/help/def/nb.htm#Occupation" aria-label="National Benefits (NAICS and SOC) Occupation">Occupation</a> Code
+	17-18           00              <a href="/help/def/nb.htm#Subcell" aria-label="National Benefits (NAICS and SOC) Subcell">Subcell</a> Code
+	19-20           33              <a href="/help/def/nb.htm#Datatype" aria-label="National Benefits (NAICS and SOC) Datatype">Datatype</a> Code
+	21-23           030             <a href="/help/def/nb.htm#Provision" aria-label="National Benefits (NAICS and SOC) Provision">Provision</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/nb/nb.ownership" aria-label="National Benefits (NAICS and SOC) Ownership codes">Ownership Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nb/nb.estimate" aria-label="National Benefits (NAICS and SOC) Estimate codes">Estimate Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nb/nb.industry" aria-label="National Benefits (NAICS and SOC) Industry codes">Industry Code</a></li>
+  <li><a  href="https://download.bls.gov/pub/time.series/nb/nb.occupation" aria-label="National Benefits (NAICS and SOC) Occupation codes">Occupation Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nb/nb.subcell" aria-label="National Benefits (NAICS and SOC) Subcell codes">Subcell Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nb/nb.datatype" aria-label="National Benefits (NAICS and SOC) Datatype codes">Datatype Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nb/nb.provision" aria-label="National Benefits (NAICS and SOC) Provision codes">Provision Codes</a></li>
+</ul>
+<!-- END NB SURVEY -->
+
+<!-- START EB SURVEY -->
+<h3 id="EB">Employee Benefits Survey - Discontinued Series (SIC and OCSM)</h3>
+<p><a href="/ncs/summary.htm" aria-label="Employee Benefits Survey – Discontinued Series (SIC and OCSM)">Survey Overview</a> The following is a sample format description of the Employee Benefits Survey series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    EBU401KINC0000ML
+	Positions       Value           Field Name
+	1-2             EB              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Employee Benefits Survey – Discontinued Series (SIC and OCSM) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-14            401KINC0000     <a href="/help/def/eb.htm#title" aria-label="Employee Benefits Survey – Discontinued Series (SIC and OCSM) Title">Title</a> Code
+	15-16           ML              <a href="/help/def/eb.htm#Type" aria-label="Employee Benefits Survey – Discontinued Series (SIC and OCSM) Type">Type</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/eb/eb.title" aria-label="Employee Benefits Survey – Discontinued Series (SIC and OCSM) Title codes">Title Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/eb/eb.type" aria-label="Employee Benefits Survey – Discontinued Series (SIC and OCSM) Type codes">Type Codes</a> </li>
+</ul>
+<!-- END EB SURVEY -->
+
+<!-- START CI SURVEY -->
+<h3 id="CI">Employment Cost Index (NAICS and SOC)</h3>
+<p><a href="/ncs/summary.htm" aria-label="Employment Cost Index (NAICS and SOC) Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Employee Cost Index series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    CIS1010000000000I
+	Positions       Value           Field Name
+	1-2             CI              Prefix
+	3               S               <a href="/help/hlpseas.htm" aria-label="Employment Cost Index (NAICS and SOC) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4               1               <a href="/help/def/ci.htm#ownership" aria-label="Employment Cost Index (NAICS and SOC) Ownership">Ownership</a> Code
+	5-6             01              <a href="/help/def/ci.htm#component" aria-label="Employment Cost Index (NAICS and SOC) Component">Component</a> Code
+	7-10            0000            <a href="/help/def/ci.htm#industry" aria-label="Employment Cost Index (NAICS and SOC) Industry">Industry</a> Code
+	11-13           000             <a href="/help/def/ci.htm#occupation" aria-label="Employment Cost Index (NAICS and SOC) Occupation">Occupation</a> Code
+	14-16           000             <a href="/help/def/ci.htm#subcategory" aria-label="Employment Cost Index (NAICS and SOC) Subcell">Subcell</a> Code
+	17              I               <a href="/help/def/ci.htm#periodicity" aria-label="Employment Cost Index (NAICS and SOC) Periodicity">Periodicity</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/ci/ci.owner" aria-label="Employment Cost Index (NAICS and SOC) Ownership codes">Ownership Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ci/ci.industry" aria-label="Employment Cost Index (NAICS and SOC) Industry codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ci/ci.occupation" aria-label="Employment Cost Index (NAICS and SOC) Occupation codes">Occupation codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ci/ci.subcell" aria-label="Employment Cost Index (NAICS and SOC) Subcell codes">Subcell Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ci/ci.periodicity" aria-label="Employment Cost Index (NAICS and SOC) Periodicity codes">Periodicity Codes</a></li>
+</ul>
+<!-- END CI SURVEY -->
+
+<!-- START EC SURVEY -->
+<h3 id="EC">Employment Cost Index - Discontinued Series (SIC and OCSM)</h3>
+<p><a href="/ncs/summary.htm" aria-label="Employment Cost Index – Discontinued Series (SIC and OCSM)">Survey Overview</a> The following is a sample format description of the Employee Cost Index series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    ECS10001I
+	Positions       Value           Field Name
+	1-2             EC              Prefix
+	3               S               <a href="/help/hlpseas.htm" aria-label="Employment Cost Index – Discontinued Series (SIC and OCSM) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4               1               <a href="/help/def/ec.htm#compensation" aria-label="Employment Cost Index – Discontinued Series (SIC and OCSM) Compensation">Compensation</a> Code
+	5-7             000             <a href="/help/def/ec.htm#group" aria-label="Employment Cost Index – Discontinued Series (SIC and OCSM) Group">Group</a> Code
+	8               1               <a href="/help/def/ec.htm#ownership" aria-label="Employment Cost Index – Discontinued Series (SIC and OCSM)) Ownership">Ownership</a> Code
+	9               I               <a href="/help/def/ec.htm#periodicity" aria-label="Employment Cost Index – Discontinued Series (SIC and OCSM) Periodicity">Periodicity</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/ec/ec.compensation" aria-label="Employment Cost Index – Discontinued Series (SIC and OCSM)Compensation codes">Compensation Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ec/ec.group" aria-label="Employment Cost Index – Discontinued Series (SIC and OCSM) Group codes">Group Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ec/ec.ownership" aria-label="Employment Cost Index – Discontinued Series (SIC and OCSM) Ownership codes">Ownership Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ec/ec.periodicity" aria-label="Employment Cost Index – Discontinued Series (SIC and OCSM) Periodicity codes">Periodicity Codes</a></li>
+</ul>
+<!-- END EC SURVEY -->
+
+<!-- START CM SURVEY -->
+<h3 id="CM">Employer Costs for Employee Compensation (NAICS and SOC)</h3>
+<p><a href="/ncs/summary.htm" aria-label="Employer Cost for Employee Compensation (NAICS and SOC) Survey Overview">Survey Overview</a> The following is a sample format description of the Employer Cost for Employee Compensation series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    CMU1010000100000P
+	Positions       Value           Field Name
+	1-2             CM              Prefix
+	3               U               <a href="/help/def/cm.htm#seasonally" aria-label="Employer Costs for Employee Compensation (NAICS and SOC) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4               1               <a href="/help/def/cm.htm#ownership" aria-label="Employer Costs for Employee Compensation (NAICS and SOC) Ownership">Ownership</a> Code
+	5-6             01           	<a href="/help/def/cm.htm#component" aria-label="Employer Costs for Employee Compensation (NAICS and SOC) Ownership">Estimate</a> Code
+	7-10           	0000          	<a href="/help/def/cm.htm#industry" aria-label="Employer Costs for Employee Compensation (NAICS and SOC) Industry">Industry</a> Code
+	11-14           1000          	<a href="/help/def/cm.htm#occupation" aria-label="Employer Costs for Employee Compensation (NAICS and SOC) Occupation">Occupation</a> Code
+	15-16           00          	<a href="/help/def/cm.htm#subcategory" aria-label="Employer Costs for Employee Compensation (NAICS and SOC) Occupation">Subcell </a> Code
+	17		P		<a href="/help/def/cm.htm#datatype" aria-label="Employer Costs for Employee Compensation (NAICS and SOC) Datatype">Datatype</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/cm/cm.owner" aria-label="Employer Costs for Employee Compensation (NAICS and SOC) Ownership codes">Ownership Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cm/cm.estimate" aria-label="Employer Costs for Employee Compensation (NAICS and SOC) Estimate codes">Estimate Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cm/cm.industry" aria-label="Employer Costs for Employee Compensation (NAICS and SOC) Industry codes">Industry Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cm/cm.occupation" aria-label="Employer Costs for Employee Compensation (NAICS and SOC) Occupation codes">Occupation Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cm/cm.subcell" aria-label="Employer Costs for Employee Compensation (NAICS and SOC) Subcell codes">Subcell Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cm/cm.datatype" aria-label="Employer Costs for Employee Compensation (NAICS and SOC) Datatype codes">Datatype Codes</a></li>
+</ul>
+<!-- END CM SURVEY -->
+
+<!-- START CC SURVEY -->
+<h3 id="CC">Employer Costs for Employee Compensation - Discontinued Series (SIC and OCSM)</h3>
+<p><a href="/ncs/summary.htm" aria-label="Employer Costs for Employee Compensation – Discontinued Series (SIC and OCSM) Survey Overview">Survey Overview</a> The following is a sample format description of the Employer Costs for Employee Compensation series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    CCU010000100000P
+	Positions       Value           Field Name
+	1-2             CC              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Employer Costs for Employee Compensation (SIC) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4               0               <a href="/help/def/cc.htm#sector" aria-label="Employer Costs for Employee Compensation (SIC) Sector">Sector</a> Code
+	5-9             10000           <a href="/help/def/cc.htm#compensation_component" aria-label="Employer Costs for Employee Compensation (SIC) Compensation Component">Compensation Component</a> Code
+	10-15           100000          <a href="/help/def/cc.htm#employer/employee_characteristics" aria-label="Employer Costs for Employee Compensation (SIC) Employer/Employee_Characteristics">Employer/Employee_Characteristics</a> Code
+	16		P		Cost Factor Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/cc/cc.sector" aria-label="Employer Costs for Employee Compensation (SIC) Sector codes">Sector Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cc/cc.benefit" aria-label="Employer Costs for Employee Compensation (SIC) Compensation codes">Compensation Component</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cc/cc.industryocc" aria-label="Employer Costs for Employee Compensation (SIC) Employer/Employee_Characteristics codes">Employer/Employee_Characteristics Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cc/cc.costfactor" aria-label="Employer Costs for Employee Compensation (SIC) Cost Factor Codes codes">Cost Factor Codes</a></li>
+</ul>
+<!-- END CC SURVEY -->
+
+<!-- START WM SURVEY -->
+<h3 id="WM">Modeled Wage Estimates (NAICS and SOC)</h3>
+<p><a href="/mwe" aria-label="Modeled Wage Estimates (NAICS and SOC)">Survey Overview</a> The following is a sample format description of the Modeled Wage Estimates series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890123456789
+	Series ID    WMU40000011020000004130992500
+	Positions       Value           Field Name
+	1-2             WM              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Modeled Wage Estimates (NAICS and SOC) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-10            4000001         <a href="/help/def/wm.htm#area" aria-label="Modeled Wage Estimates (NAICS and SOC) Area">Area</a> Code
+	11              1               <a href="/help/def/wm.htm#ownership" aria-label="Modeled Wage Estimates (NAICS and SOC) Ownership">Ownership</a> Code
+	12-13           02              <a href="/help/def/wm.htm#estimate" aria-label="Modeled Wage Estimates (NAICS and SOC) Estimate">Estimate</a> Code
+	14-19           000000          <a href="/help/def/wm.htm#industry" aria-label="Modeled Wage Estimates (NAICS and SOC) Industry">Industry</a> Code
+	20-25           413099          <a href="/help/def/wm.htm#occupation" aria-label="Modeled Wage Estimates (NAICS and SOC) Occupation">Occupation</a> Code
+	26-27           25              <a href="/help/def/wm.htm#job_characteristic" aria-label="Modeled Wage Estimates (NAICS and SOC) Job Characteristic">Job Characteristic</a> Code
+	28-29           00              <a href="/help/def/wm.htm#work_level" aria-label="Modeled Wage Estimates (NAICS and SOC) Level">Level</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/wm/wm.area" aria-label="Modeled Wage Estimates (NAICS and SOC) Area Codes">Area Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/wm/wm.ownership" aria-label="Modeled Wage Estimates (NAICS and SOC) Ownership Codes">Ownership Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/wm/wm.estimate" aria-label="Modeled Wage Estimates (NAICS and SOC) Estimate Codes">Estimate Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/wm/wm.industry" aria-label="Modeled Wage Estimates (NAICS and SOC) Industry Codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/wm/wm.occupation" aria-label="Modeled Wage Estimates (NAICS and SOC) Occupation Codes">Occupation Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/wm/wm.subcell" aria-label="Modeled Wage Estimates (NAICS and SOC) Characteristic Codes">Job Characteristic Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/wm/wm.level" aria-label="Modeled Wage Estimates (NAICS and SOC) Level Codes">Level Codes</a></li>
+</ul>
+<!-- END WM SURVEY -->
+
+<!-- START NC SURVEY -->
+<h3 id="NC">National Compensation - Discontinued Series (SIC and Census of Population) </h3>
+<p><a href="/ncs/summary.htm" aria-label="National Compensation – Discontinued Series (SIC and Census of Population) Overview">Survey Overview</a> The following is a sample format description of the National Compensation
+  Survey series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    NCU5306633300003
+	Positions       Value           Field Name
+	1-2             NC              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="National Compensation – Discontinued Series (SIC and Census of Population)  Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-5             53              <a href="/help/def/nc.htm#state" aria-label="National Compensation – Discontinued Series (SIC and Census of Population)  State">State</a> Code
+	6-9             0663            <a href="/help/def/nc.htm#area" aria-label="National Compensation – Discontinued Series (SIC and Census of Population)  Area">Area</a> Code
+	10-14           33000           <a href="/help/def/nc.htm#occupation" aria-label="National Compensation – Discontinued Series (SIC and Census of Population)  Occupation">Occupation</a> Code
+	15-16           03              <a href="/help/def/nc.htm#level" aria-label="National Compensation – Discontinued Series (SIC and Census of Population)  Level">Level</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/nc/nc.state" aria-label="National Compensation – Discontinued Series (SIC and Census of Population) State codes">State Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nc/nc.starea" aria-label="National Compensation – Discontinued Series (SIC and Census of Population) Area codes">Area Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nc/nc.occupation" aria-label="National Compensation – Discontinued Series (SIC and Census of Population) Occupation codes">Occupation Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nc/nc.level" aria-label="National Compensation – Discontinued Series (SIC and Census of Population)  Level codes">Level Codes</a></li>
+</ul>
+<!-- END NC SURVEY -->
+
+<!-- START NW SURVEY -->
+<h3 id="NW">National Wages (NW) : Discontinued database (NAICS and SOC)</h3>
+<p><a href="/ncs/summary.htm" aria-label="•	National Wages (NW) : discontinued database (NAICS and SOC) Overview">Survey Overview</a> The following is a sample format description of the National Wages
+  Survey series identifier:</p>
+<pre>
+			      1         2         3
+	             123456789012345678901234567890
+	Series ID    NWU371674020200000000002505000
+	Positions       Value           Field Name
+	1-2             NW              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="National Wages (NW) : Discontinued database (NAICS and SOC) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-5             37              <a href="/help/def/nw.htm#state" aria-label="National Wages (NW) : Discontinued database (NAICS and SOC) State">State</a> Code
+	6-10            16740           <a href="/help/def/nw.htm#area" aria-label="National Wages (NW) : Discontinued database (NAICS and SOC) Area">Area</a> Code
+	11           	2           	Ownership Code
+	12-13           02           	Estimate Code
+	14-17           0000            Industry Code
+	18-23           000000          <a href="/help/def/nw.htm#occupation" aria-label="National Wages (NW) : Discontinued database (NAICS and SOC) Occupation">Occupation</a> Code
+	24-25           25              Subcell Code
+	26-27           05              Data Type Code
+	28-29           00              <a href="/help/def/nw.htm#level" aria-label="National Wages (NW) : Discontinued database (NAICS and SOC) Work Level">Work Level/Supervisory</a> Code
+	30              0               Filler Codeseasonal (code)
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/nw/nw.starea" aria-label="National Wages (NW) : Discontinued database (NAICS and SOC) Area codes">Area Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nw/nw.ownership" aria-label="National Wages (NW) : Discontinued database (NAICS and SOC) Ownership codes">Ownership Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nw/nw.estimate_id" aria-label="National Wages (NW) : Discontinued database (NAICS and SOC) Estimate codes">Estimate Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nw/nw.industry" aria-label="National Wages (NW) : Discontinued database (NAICS and SOC) Industry codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nw/nw.occupation" aria-label="National Wages (NW) : Discontinued database (NAICS and SOC) Occupation codes">Occupation Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nw/nw.subcell_id" aria-label="National Wages (NW) : Discontinued database (NAICS and SOC) Subcell codes">Subcell Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nw/nw.datatype_id" aria-label="National Wages (NW) : Discontinued database (NAICS and SOC) Data Type codes">Data Type Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/nw/nw.level" aria-label="National Wages (NW) : Discontinued database (NAICS and SOC) Work Level codes">Work Level Codes</a></li>
+</ul>
+<!-- END NW SURVEY -->
+<p>&nbsp;</p>
+<!-- START WS SURVEY -->
+<h2>Work Stoppages</h2>
+<h3 id="WS">Work Stoppages Program</h3>
+<p><a href="https://download.bls.gov/pub/time.series/ws/ws.txt" aria-label="Work Stoppages Program Overview">Survey Overview</a> The
+  following is a sample format description of the Work Stoppage series
+  identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    WSUB00
+	Positions       Value           Field Name
+	1-2             WS              Prefix
+	3               U               Seasonal Adjustment Code
+	4-6             B00             <a href="https://download.bls.gov/pub/time.series/ws/ws.measure" aria-label="Work Stoppages Program Measure">Measure</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/ws/ws.measure" aria-label="Work Stoppages Program Measure codes">Measure Codes</a></li>
+</ul>
+<!-- END WS SURVEY -->
+<p>&nbsp;</p>
+<h2>Productivity</h2>
+<!-- START PR SURVEY -->
+<h3 id="PR">Major Sector Productivity and Costs</h3>
+<p><a href="/lpc/lpcover.htm" aria-label="Major Sector Productivity and Costs Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Major Sector
+  Productivity and Costs series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    PRS85006032
+	Positions       Value           Field Name
+	1-2             PR              Prefix
+	3               S               <a href="/help/hlpseas.htm" aria-label="Major Sector Productivity and Costs Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-7             3000            <a href="/help/def/pr.htm#sector" aria-label="Major Sector Productivity and Costs Sector">Sector</a> Code
+	8               6               <a href="/help/def/pr.htm#type" aria-label="Major Sector Productivity and Costs Type">Type</a> Code
+	9-10            08              <a href="/help/def/pr.htm#measure" aria-label="Major Sector Productivity and Costs Measure">Measure</a> Code
+	11              1               <a href="/help/def/pr.htm#duration" aria-label="Major Sector Productivity and Costs Duration">Duration</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following
+  for a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/pr/pr.sector" aria-label="Major Sector Productivity and Costs Sector Codes">Sector Codes</a></li>
+	<li>Type Codes</li>
+  <li><a href="https://download.bls.gov/pub/time.series/pr/pr.measure" aria-label="Major Sector Productivity and Costs Measure Codes">Measure Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/pr/pr.duration" aria-label="Major Sector Productivity and Costs Duration Codes">Duration Codes</a> </li>
+</ul>
+<!-- END PR SURVEY -->
+
+<!-- START MP SURVEY -->
+<h3 id="MP">Major Sector Total Factor Productivity</h3>
+<p><a href="/mfp/mprover.htm" aria-label="Major Sector Total Factor Productivity Survey Overview">Survey Overview</a> The following is a sample format description of the Major Sector Total Factor Productivity Index series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    MPU4900012
+	Positions       Value           Field Name
+	1-2             MP              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Major Sector Total Factor Productivity Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-7             4900            <a href="/help/def/mp.htm#sector" aria-label="Major Sector Total Factor Productivity Sector">Sector</a> Code
+	8-9             01              <a href="/help/def/mp.htm#measure" aria-label="Major Sector Total Factor Productivity Measure">Measure</a> Code
+	10              2               <a href="/help/def/mp.htm#duration" aria-label="Major Sector Total Factor Productivity Duration">Duration</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following
+  for a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/mp/mp.sector" aria-label="Major Sector Total Factor Productivity Sector Codes">Sector Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/mp/mp.measure" aria-label="Major Sector Total Factor Productivity Measure Codes">Measure Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/mp/mp.duration" aria-label="Major Sector Total Factor Productivity Duration Codes">Duration Codes</a></li>
+</ul>
+<!-- END MP SURVEY -->
+
+<!-- START IP SURVEY -->
+<h3 id="IP">Industry Productivity</h3>
+<p><a href="/lpc/lpcover.htm" aria-label="Industry Productivity Survey Overview">Survey Overview</a> The following is a sample format description of the Industry Productivity series identifier:</p>
+<pre>	                      1         2         3
+	             123456789012345678901234567890
+	Series ID    IPUBN212___W000000000
+	Positions       Value           Field Name
+	1-2             IP              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Industry Productivity Survey Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4               B               <a href="/help/def/ip.htm#sector" aria-label="Industry Productivity Survey Sector">Sector</a> Code
+	5-11            N21___          <a href="/help/def/ip.htm#industry" aria-label="Industry Productivity Survey Industry">Industry</a> Code
+	12-14           W00             <a href="/help/def/ip.htm#measure" aria-label="Industry Productivity Survey Measure">Measure</a> Code
+	15              0               <a href="/help/def/ip.htm#duration" aria-label="Industry Productivity Survey Duration">Duration</a> Code
+	16-21           000000          <a href="/help/def/ip.htm#area" aria-label="Industry Productivity Survey Area">Area</a> Code
+</pre>
+<p>To assist you in formatting series IDs, access any of the following for a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/ip/ip.sector" aria-label="Industry Productivity Survey Sector Codes">Sector Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ip/ip.industry" aria-label="Industry Productivity Survey Industry Codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ip/ip.measure" aria-label="Industry Productivity Survey Measure Codes">Measure Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ip/ip.duration" aria-label="Industry Productivity Survey Duration Codes">Duration Codes</a> </li>
+  <li><a href="https://download.bls.gov/pub/time.series/ip/ip.area" aria-label="Industry Productivity Survey Area Codes">Area Codes</a> </li>
+</ul>
+<!-- END IP SURVEY -->
+
+<p>&nbsp;</p>
+<h2>Workplace Injuries</h2>
+
+<!-- START IS SURVEY -->
+<h3 id="IS">Occupational Injuries and Illnesses - industry data (2014 forward)</h3>
+<p><a href="/iif/oshover.htm" aria-label="Occupational Injuries and Illnesses - industry data (2014 forward) Survey Overview">Survey Overview</a> The following is a sample format description of the Occupational Injuries and
+  Illnesses industry data series identifier:</p>
+<pre>	                         1         2
+ 			12345678901234567890
+	Series ID   	ISU00X00000060N00
+	Positions       Value           Field Name
+	1-2             IS              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Occupational Injuries and Illnesses - industry data (2014 forward) seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-6             00X             <a href="/help/def/is.htm#supersector" aria-label="Occupational Injuries and Illnesses - industry data (2014 forward) Supersector">Supersector</a> Code
+	7-12            000000          <a href="/help/def/is.htm#industry" aria-label="Occupational Injuries and Illnesses - industry data (2014 forward) Industry">Industry</a> Code
+	13              6               <a href="/help/def/is.htm#datatype" aria-label="Occupational Injuries and Illnesses - industry data (2014 forward) Data Type">Data Type</a> Code
+	14              0               <a href="/help/def/is.htm#casetype" aria-label="Occupational Injuries and Illnesses - industry data (2014 forward) Case Type">Case Type</a> Code
+	15-17           N00             <a href="/help/def/is.htm#area" aria-label="Occupational Injuries and Illnesses - industry data (2014 forward) Area">Area</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/is/is.supersector" aria-label="Occupational Injuries and Illnesses - industry data (2014 forward) Supersector codes">Supersector Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/is/is.data_type" aria-label="Occupational Injuries and Illnesses - industry data (2014 forward) Data Type codes">Data Type Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/is/is.case_type" aria-label="Occupational Injuries and Illnesses - industry data (2014 forward) Case Type codes">Case Type Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/is/is.industry" aria-label="Occupational Injuries and Illnesses - industry data (2014 forward) Industry codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/is/is.area" aria-label="Occupational Injuries and Illnesses - industry data (2014 forward) Area codes">Area Codes</a></li>
+</ul>
+<!-- END IS SURVEY -->
+
+
+<!-- START FW SURVEY -->
+<h3 id="FW">Census of Fatal Occupational Injuries (2011 forward)</h3>
+<p><a href="/iif/oshover.htm" aria-label="Census of Fatal Occupational Injuries (2011 forward) Survey Overview">Survey Overview</a> The following is a sample format description of the Census of Fatal
+  Occupational Injuries series identifier:</p>
+<pre>	                         1         2
+ 			12345678901234567890
+	Series ID   	FWU00X00000080M70
+
+	Positions       Value           Field Name
+	1-2             FW              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Census of Fatal Occupational Injuries (2011 forward) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-6             00X             <a href="/help/def/fw.htm#category" aria-label="Census of Fatal Occupational Injuries (2011 forward) Category">Category</a> Code
+	7-12            000000          Detail Code (<a href="/help/def/fw.htm#industry" aria-label="Census of Fatal Occupational Injuries (2011 forward) Industry">Industry</a>, <a href="/help/def/fw.htm#event" aria-label="Census of Fatal Occupational Injuries (2011 forward) Event or Exposure">Event or Exposure</a>, <a href="/help/def/fw.htm#source" aria-label="Census of Fatal Occupational Injuries (2011 forward) Primary Source">Primary Source</a>, <a href="/help/def/fw.htm#secondary_source" aria-label="Census of Fatal Occupational Injuries (2011 forward) Secondary Source">Secondary Source</a>, <a href="/help/def/fw.htm#occupation" aria-label="Census of Fatal Occupational Injuries (2011 forward) Occupation">Occupation</a>)
+	13              8               <a href="/help/def/fw.htm#datatype" aria-label="Census of Fatal Occupational Injuries (2011 forward) Data Type">Data Type</a> Code
+	14              0               <a href="/help/def/fw.htm#casetype" aria-label="Census of Fatal Occupational Injuries (2011 forward) Case Type">Case Type</a> Code
+	15-17           M70             <a href="/help/def/fw.htm#area" aria-label="Census of Fatal Occupational Injuries (2011 forward) Area Type">Area</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/fw/fw.category2" aria-label="Census of Fatal Occupational Injuries (2011 forward) Category Codes">Category Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/fw/fw.datatype" aria-label="Census of Fatal Occupational Injuries (2011 forward) Data Type Codes">Data Type Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/fw/fw.case" aria-label="Census of Fatal Occupational Injuries (2011 forward) Case Type Codes">Case Type Codes</a></li>
+  <li>Detail Codes
+    <ul>
+      <li><a href="https://download.bls.gov/pub/time.series/fw/fw.industry" aria-label="Census of Fatal Occupational Injuries (2011 forward) Industry Codes">Industry Codes</a></li>
+      <li><a href="https://download.bls.gov/pub/time.series/fw/fw.event" aria-label="Census of Fatal Occupational Injuries (2011 forward) Event or Exposure Codes">Event or Exposure Codes</a></li>
+      <li><a href="https://download.bls.gov/pub/time.series/fw/fw.source" aria-label="Census of Fatal Occupational Injuries (2011 forward) Primary Source/Secondary Source Codes">Primary Source/Secondary Source Codes</a></li>
+      <li><a href="https://download.bls.gov/pub/time.series/fw/fw.occupation" aria-label="Census of Fatal Occupational Injuries (2011 forward) Occupation Codes">Occupation Codes</a></li>
+    </ul></li>
+  <li><a href="https://download.bls.gov/pub/time.series/fw/fw.area" aria-label="Census of Fatal Occupational Injuries (2011 forward) Area Codes">Area Codes</a></li>
+</ul>
+<!-- END FW SURVEY -->
+
+<!-- START FI SURVEY -->
+<h3 id="FI">Census of Fatal Occupational Injuries (2003 - 2010)</h3>
+<p><a href="/iif/oshover.htm" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Census of Fatal
+  Occupational Injuries series identifier:</p>
+<pre>	                         1         2
+ 			12345678901234567890
+	Series ID   	FIU00X00000080N00
+	Positions       Value           Field Name
+	1-2             FI              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-6             00X             <a href="/help/def/fi.htm#category" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Category">Category</a> Code
+	7-12            000000          Detail Code (<a href="/help/def/fi.htm#industry" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Industry">Industry</a>, <a href="/help/def/fi.htm#event" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Event">Event</a>, <a href="/help/def/fi.htm#source" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Source">Source</a>, <a href="/help/def/fi.htm#secondary_source" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Secondary Source">Secondary Source</a>, <a href="/help/def/fi.htm#occupation" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Occupation">Occupation</a>)
+	13              8               <a href="/help/def/fi.htm#datatype">Data Type</a> Code
+	14              0               <a href="/help/def/fi.htm#casetype">Case Type</a> Code
+	15-17           N00             <a href="/help/def/fi.htm#area">Area</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/fi/fi.category" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Category Codes">Category Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/fi/fi.datatype" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Data Type Codes">Data Type Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/fi/fi.case" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Case Type Codes">Case Type Codes</a></li>
+  <li>Detail Codes
+    <ul>
+      <li><a href="https://download.bls.gov/pub/time.series/fi/fi.industry" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Industry Codes">Industry Codes</a></li>
+      <li><a href="https://download.bls.gov/pub/time.series/fi/fi.event" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Event Codes">Event Codes</a></li>
+      <li><a href="https://download.bls.gov/pub/time.series/fi/fi.source" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Source/Secondary Source Codes">Source/Secondary Source Codes</a></li>
+      <li><a href="https://download.bls.gov/pub/time.series/fi/fi.occupation" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Source/Secondary Occupation Codes">Occupation Codes</a></li>
+    </ul></li>
+  <li><a href="https://download.bls.gov/pub/time.series/fi/fi.area" aria-label="Census of Fatal Occupational Injuries (2003 - 2010) Source/Secondary Area Codes">Area Codes</a> </li>
+</ul>
+<!-- END FI SURVEY -->
+
+<!-- START CF SURVEY -->
+<h3 id="CF">Census of Fatal Occupational Injuries (1992 - 2002)</h3>
+<p><a href="/iif/oshover.htm" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Census of Fatal
+  Occupational Injuries series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    CFU00000080
+	Positions       Value           Field Name
+	1-2             CF              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-5             00              <a href="/help/def/cf.htm#category" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Category">Category</a> Code
+	6-9             0000           	Detail Code (<a href="/help/def/cf.htm#industry" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Industry">Industry</a>, <a href="/help/def/cf.htm#event" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Event">Event</a>, <a href="/help/def/cf.htm#source" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Source">Source</a>, <a href="/help/def/cf.htm#secondary_source" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Secondary Source">Secondary Source</a>, <a href="/help/def/cf.htm#occupation" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) occupation">Occupation</a>)
+	10              8               <a href="/help/def/cf.htm#datatype" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Data Type">Data Type</a> Code
+	11              0               <a href="/help/def/cf.htm#casetype" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Case Type">Case Type</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/cf/cf.category" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Category Codes">Category Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cf/cf.datatype" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Data Type Codes">Data Type Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cf/cf.case" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Case Type Codes">Case Type Codes</a></li>
+  <li>Detail Codes
+    <ul>
+      <li><a href="https://download.bls.gov/pub/time.series/cf/cf.industry" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Industry Codes">Industry Codes</a></li>
+      <li><a href="https://download.bls.gov/pub/time.series/cf/cf.event" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Event Codes">Event Codes</a></li>
+      <li><a href="https://download.bls.gov/pub/time.series/cf/cf.source" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Source/Secondary Source codes">Source/Secondary Source Codes</a></li>
+      <li><a href="https://download.bls.gov/pub/time.series/cf/cf.occupation" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Occupation codes">Occupation Codes</a></li>
+    </ul></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cf/cf.industry" aria-label="Census of Fatal Occupational Injuries (1992 - 2002) Source/Secondary Industry codes">Industry Codes</a></li>
+</ul>
+<!-- END CF SURVEY -->
+
+<!-- START CB SURVEY -->
+<h3 id="CB">Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics</h3>
+<p><a href="/iif/oshover.htm" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics">Survey Overview</a> The
+  following is a sample format description of the Occupational Injuries and
+  Illnesses industry data series identifier:</p>
+<pre>	                         1         2
+ 			12345678901234567890
+	Series ID   	CBUS8C2212XX6E000
+	Positions       Value           Field Name
+	1-2             CB              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-6             S8C             <a href="/help/def/cb.htm#category" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Category">Category</a> Code
+	7-12            2212XX          <a href="/help/def/cb.htm#event" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Event">Event</a> Code
+	13              6               <a href="/help/def/cb.htm#data_type" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Data Type">Datatype</a> Code
+	14              E               <a href="/help/def/cb.htm#case_type" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Case Type">Case</a> Code
+	15	        0             	<a href="/help/def/cb.htm#ownership" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Ownership">Ownership</a> Code
+	16-17           00              <a href="/help/def/cb.htm#area" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Area">Area</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.age" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Age codes">Age codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.state" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics State code">Area codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.case" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Case code">Case codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.category" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Category codes">Category codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.datatype" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Datatype code">Datatype codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.event" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Event code">Event codes</a> </li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.gender" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Gender code">Gender codes</a> </li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.hour" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Hour code">Hour codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.industry" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Industry code">Industry codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.los" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics LOS code (length of service)">LOS codes (length of service)</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.medical" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Medical code">Medical codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.nature" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Nature code">Nature codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.occupation" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Occupation code">Occupation codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.ownership" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Ownership code">Ownership codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.pob" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics POB code (part of body)">POB codes (part of body)</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.race" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Race code)">Race codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.source" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Source code)">Source codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.special" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Special code (Musculoskeletal disorders)">Special code (Musculoskeletal disorders)</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.time" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Time code">Time codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cb/cb.weekday" aria-label="Biennial Nonfatal Case and Demographic numbers and rates: selected characteristics Weekday code">Weekday codes</a></li>
+</ul>
+<!-- END CS SURVEY -->
+
+<!-- START CS SURVEY -->
+<h3 id="CS">Nonfatal cases involving days away from work: selected characteristics (2011 - 2020)</h3>
+<p><a href="/iif/oshover.htm" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2011 forward) Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Occupational Injuries and
+  Illnesses industry data series identifier:</p>
+<pre>	                         1         2
+ 			12345678901234567890
+	Series ID   	CSUSDX031XXX6E000
+	Positions       Value           Field Name
+	1-2             CS              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2011 forward) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-6             SDX             <a href="/help/def/cs.htm#category" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2011 forward) Category">Category</a> Code
+	7-12            031XXX          <a href="/help/def/cs.htm#detail" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2011 forward) Detail">Detail</a> Code
+	13              6               <a href="/help/def/cs.htm#datatype" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2011 forward) Data Type">Data Type</a> Code
+	14              E               <a href="/help/def/cs.htm#casetype" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2011 forward) Case Type">Case Type</a> Code
+	15	        0             	<a href="/help/def/cs.htm#ownership" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2011 forward) Ownership">Ownership</a> Code
+	16-17           00              <a href="/help/def/cs.htm#area" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2011 forward) Area">Area</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/cs/cs.category" aria-label="Nonfatal cases involving days away from work: selected characteristics (2011 forward) Category codes">Category
+    Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cs/cs.age" aria-label="Nonfatal cases involving days away from work: selected characteristics (2011 forward) Age codes">Age Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cs/cs.datatype" aria-label="Nonfatal cases involving days away from work: selected characteristics (2011 forward) Data Type codes">Data Type Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cs/cs.case" aria-label="Nonfatal cases involving days away from work: selected characteristics (2011 forward) Case Type codes">Case Type Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cs/cs.ownership" aria-label="Nonfatal cases involving days away from work: selected characteristics (2011 forward) Ownership codes">Ownership Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cs/cs.state" aria-label="Nonfatal cases involving days away from work: selected characteristics (2011 forward) Area codes">Area Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cs/cs.industry" aria-label="Nonfatal cases involving days away from work: selected characteristics (2011 forward) Industry codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cs/cs.event" aria-label="Nonfatal cases involving days away from work: selected characteristics (2011 forward) Event codes">Event Codes</a> </li>
+</ul>
+<!-- END CS SURVEY -->
+
+<!-- START CH SURVEY -->
+<h3 id="CH">Nonfatal cases involving days away from work: selected
+  characteristics (2003 - 2010)</h3>
+<p><a href="/iif/oshover.htm" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2003 - 2010) Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Occupational Injuries and
+  Illnesses industry data series identifier:</p>
+<pre>	                         1         2
+ 			12345678901234567890
+	Series ID   	CHUSDX031XXX6E000
+	Positions       Value           Field Name
+	1-2             CH              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2003 - 2010) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-6             SDX             <a href="/help/def/ch.htm#category" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2003 - 2010) Category">Category</a> Code
+	7-12            031XXX          <a href="/help/def/ch.htm#detail" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2003 - 2010) Detail">Detail</a> Code
+	13              6               <a href="/help/def/ch.htm#datatype" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2003 - 2010) Data Type">Data Type</a> Code
+	14              E               <a href="/help/def/ch.htm#casetype" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2003 - 2010) Case Type">Case Type</a> Code
+	15	        0             	<a href="/help/def/ch.htm#ownership" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2003 - 2010) Ownership">Ownership</a> Code
+	16-17           00              <a href="/help/def/ch.htm#area" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2003 - 2010) Area">Area</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/ch/ch.category" aria-label="Nonfatal cases involving days away from work: selected characteristics (2003 - 2010) Category codes">Category Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ch/ch.age" aria-label="Nonfatal cases involving days away from work: selected characteristics (2003 - 2010) Age codes">Age Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ch/ch.datatype" aria-label="Nonfatal cases involving days away from work: selected characteristics (2003 - 2010) Data Type codes">Data Type Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ch/ch.case" aria-label="Nonfatal cases involving days away from work: selected characteristics (2003 - 2010) Case Type codes">Case Type Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ch/ch.ownership" aria-label="Nonfatal cases involving days away from work: selected characteristics (2003 - 2010) Ownership codes">Ownership Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ch/ch.state" aria-label="Nonfatal cases involving days away from work: selected characteristics (2003 - 2010) Area codes">Area Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ch/ch.industry" aria-label="Nonfatal cases involving days away from work: selected characteristics (2003 - 2010) Industry codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ch/ch.event" aria-label="Nonfatal cases involving days away from work: selected characteristics (2003 - 2010) Event codes">Event Codes</a> </li>
+</ul>
+<!-- END CH SURVEY -->
+
+<!-- START HC SURVEY -->
+<h3 id="HC">Nonfatal cases involving days away from work: selected characteristics (2002) </h3>
+<p><a href="/iif/oshover.htm" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2002) Survey Overview">Survey Overview</a> The following is a sample format description of the Nonfatal injuries and illnesses: industry incidence rates (1989-current) series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    HCU0012123N
+	Positions       Value           Field Name
+	1-2             HC              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2002) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-5             00              <a href="/help/def/hc.htm#category" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2002) Category">Category</a> Code
+	6-9             1212            <a href="/help/def/hc.htm#industry" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2002) Industry">Industry</a> Code
+	10              3               <a href="/help/def/hc.htm#datatype" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2002) Data Type">Data Type</a> Code
+	11              N               <a href="/help/def/hc.htm#casetype" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (2002) Case Type">Case Type</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/hc/hc.category" aria-label="Nonfatal cases involving days away from work: selected characteristics (2002) Category Codes">Category Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/hc/hc.industry" aria-label="Nonfatal cases involving days away from work: selected characteristics (2002) Industry Codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/hc/hc.datatype" aria-label="Nonfatal cases involving days away from work: selected characteristics (2002) Data Type Codes">Data Type Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/hc/hc.case" aria-label="Nonfatal cases involving days away from work: selected characteristics (2002) Case Type Codes">Case Type Codes</a></li>
+</ul>
+<!-- END HC SURVEY -->
+
+<!-- START CD SURVEY -->
+<h3 id="CD">Nonfatal cases involving days away from work: selected characteristics (1992 - 2001)</h3>
+<p><a href="/iif/oshover.htm" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (1992 - 2001) Survey Overview">Survey Overview</a> The following is a sample format description of the Nonfatal injuries and illnesses: industry incidence rates (1989-current) series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    CDUDMM10073
+	Positions       Value           Field Name
+	1-2             CD              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (1992 - 2001) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-5             DM              <a href="/help/def/cd.htm#category" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (1992 - 2001) Category">Category</a> Code
+	6-9             M100            <a href="/help/def/cd.htm#industry" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (1992 - 2001) Industry">Industry</a> Code
+	10              7               <a href="/help/def/cd.htm#datatype" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (1992 - 2001) Data Type">Data Type</a> Code
+	11              3               <a href="/help/def/cd.htm#casetype" aria-label="Nonfatal cases involving days away from work: selected
+  characteristics (1992 - 2001) Case Type">Case Type</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/cd/cd.category" aria-label="Nonfatal cases involving days away from work: selected characteristics (1992 - 2001) Category codes">Category Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cd/cd.industry" aria-label="Nonfatal cases involving days away from work: selected characteristics (1992 - 2001) Industry codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cd/cd.datatype" aria-label="Nonfatal cases involving days away from work: selected characteristics (1992 - 2001) Data Type codes">Data Type Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/cd/cd.case" aria-label="Nonfatal cases involving days away from work: selected characteristics (1992 - 2001) Case Type codes">Case Type Codes</a></li>
+</ul>
+<!-- END CD SURVEY -->
+
+<!-- START HS SURVEY -->
+<h3 id="HS">Occupational injuries and illnesses: industry data (pre-1989) </h3>
+<p><a href="/iif/oshover.htm" aria-label="Occupational injuries and illnesses: industry data (pre-1989) Survey Overview">Survey Overview</a> The following is a sample format description of the Occupational injuries and
+  illnesses: industry data (pre-1989) series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    HSU09020018
+	Positions       Value           Field Name
+	1-2             HS              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Occupational injuries and illnesses: industry data (pre-1989) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-5             09              <a href="/help/def/hs.htm#division" aria-label="Occupational injuries and illnesses: industry data (pre-1989) Division">Division</a> Code
+	6-9             0200            <a href="/help/def/hs.htm#industry" aria-label="Occupational injuries and illnesses: industry data (pre-1989) Industry">Industry</a> Code
+	10              1               <a href="/help/def/hs.htm#datatype" aria-label="Occupational injuries and illnesses: industry data (pre-1989) Data Type">Data Type</a> Code
+	11              8               <a href="/help/def/hs.htm#casetype" aria-label="Occupational injuries and illnesses: industry data (pre-1989) Case Type">Case Type</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/hs/hs.division" aria-label="Occupational injuries and illnesses: industry data (pre-1989) Division Codes">Division Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/hs/hs.industry" aria-label="Occupational injuries and illnesses: industry data (pre-1989) Industry Codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/hs/hs.data.type" aria-label="Occupational injuries and illnesses: industry data (pre-1989) Data Type Codes">Data Type Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/hs/hs.case.type" aria-label="Occupational injuries and illnesses: industry data (pre-1989) Case Type Codes">Case Type Codes</a></li>
+</ul>
+<!-- END HS SURVEY -->
+
+<!-- START SH SURVEY -->
+<h3 id="SH">Occupational injuries and illnesses: industry data (1989 - 2001)</h3>
+<p><a href="/iif/oshover.htm" aria-label="Occupational injuries and illnesses: industry data
+  (1989 - 2001) Survey Overview">Survey Overview</a> The following is a sample format description of the Occupational injuries and illnesses: industry data (1989-2001) series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    SHU00000034
+	Positions       Value           Field Name
+	1-2             SH              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Occupational injuries and illnesses: industry data
+  (1989 - 2001) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-5             00              <a href="/help/def/sh.htm#division" aria-label="Occupational injuries and illnesses: industry data
+  (1989 - 2001) Division">Division</a> Code
+	6-9             0000            <a href="/help/def/sh.htm#industry" aria-label="Occupational injuries and illnesses: industry data
+  (1989 - 2001) Industry">Industry</a> Code
+	10              3               <a href="/help/def/sh.htm#datatype" aria-label="Occupational injuries and illnesses: industry data
+  (1989 - 2001) Data Type">Data Type</a> Code
+	11              4               <a href="/help/def/sh.htm#casetype" aria-label="Occupational injuries and illnesses: industry data
+  (1989 - 2001) Case Type">Case Type</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/sh/sh.division" aria-label="Occupational injuries and illnesses: industry data (1989 - 2001) Division codes">Division Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/sh/sh.industry" aria-label="Occupational injuries and illnesses: industry data (1989 - 2001) Industry codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/sh/sh.data.type" aria-label="Occupational injuries and illnesses: industry data (1989 - 2001) Data Type codes">Data Type Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/sh/sh.case.type" aria-label="Occupational injuries and illnesses: industry data (1989 - 2001) Case Type codes">Case Type Codes</a> </li>
+</ul>
+<!-- END SH SURVEY -->
+
+<!-- START SI SURVEY -->
+<h3 id="SI">Occupational injuries and illnesses: industry data (2002)</h3>
+<p><a href="/iif/oshover.htm" aria-label="Occupational injuries and illnesses: industry data (2002) Survey Overview">Survey Overview</a> The following is a sample format description of the Occupational injuries and
+  illnesses: industry data (2002) series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    SIU00000001
+	Positions       Value           Field Name
+	1-2             SI              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Occupational injuries and illnesses: industry data (2002) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-5             00              <a href="/help/def/si.htm#division" aria-label="Occupational injuries and illnesses: industry data (2002) Division">Division</a> Code
+	6-9             0000            <a href="/help/def/si.htm#industry" aria-label="Occupational injuries and illnesses: industry data (2002) Industry">Industry</a> Code
+	10              0               <a href="/help/def/si.htm#datatype" aria-label="Occupational injuries and illnesses: industry data (2002) data Type">Data Type</a> Code
+	11              1               <a href="/help/def/si.htm#casetype" aria-label="Occupational injuries and illnesses: industry data (2002) Case Type">Case Type</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/si/si.division" aria-label="Occupational injuries and illnesses: industry data (2002) Division codes">Division Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/si/si.industry" aria-label="Occupational injuries and illnesses: industry data (2002) Industry codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/si/si.data_type" aria-label="Occupational injuries and illnesses: industry data (2002) Data codes">Data Type Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/si/si.case_type" aria-label="Occupational injuries and illnesses: industry data (2002) Case codes">Case Type Codes</a></li>
+</ul>
+<!-- END SI SURVEY -->
+
+<!-- START II SURVEY -->
+<h3 id="II">Occupational Injuries and Illnesses - industry data (2003 - 2013)</h3>
+<p><a href="/iif/oshover.htm" aria-label="Occupational Injuries and Illnesses - industry data (2003 - 2013) Survey Overview">Survey Overview</a> The following is a sample format description of the Occupational Injuries and
+  Illnesses industry data series identifier:</p>
+<pre>	                         1         2
+ 			12345678901234567890
+	Series ID   	IIU00X00000060N00
+	Positions       Value           Field Name
+	1-2             II              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Occupational Injuries and Illnesses - industry data (2003 - 2013) Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-6             00X             <a href="/help/def/ii.htm#supersector" aria-label="Occupational Injuries and Illnesses - industry data (2003 - 2013) Supersector">Supersector</a> Code
+	7-12            000000          <a href="/help/def/ii.htm#industry" aria-label="Occupational Injuries and Illnesses - industry data (2003 - 2013) Industry">Industry</a> Code
+	13              6               <a href="/help/def/ii.htm#datatype" aria-label="Occupational Injuries and Illnesses - industry data (2003 - 2013) Data Type">Data Type</a> Code
+	14              0               <a href="/help/def/ii.htm#casetype" aria-label="Occupational Injuries and Illnesses - industry data (2003 - 2013) Case Type">Case Type</a> Code
+	15-17           N00             <a href="/help/def/ii.htm#area" aria-label="Occupational Injuries and Illnesses - industry data (2003 - 2013) Area Type">Area</a> Code
+	</pre>
+<p>To assist you in formatting series IDs, access any of the following for
+  a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/ii/ii.supersector" aria-label="Occupational Injuries and Illnesses - industry data (2003 - 2013) Supersector codes">Supersector Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ii/ii.data_type" aria-label="Occupational Injuries and Illnesses - industry data (2003 - 2013) Data Type codes">Data Type Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ii/ii.case_type" aria-label="Occupational Injuries and Illnesses - industry data (2003 - 2013) Case Type codes">Case Type Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ii/ii.industry" aria-label="Occupational Injuries and Illnesses - industry data (2003 - 2013) Industry codes">Industry Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ii/ii.area" aria-label="Occupational Injuries and Illnesses - industry data (2003 - 2013) Area codes">Area Codes</a></li>
+</ul>
+<!-- END II SURVEY -->
+<p>&nbsp;</p>
+<h2>Occupational Requirements</h2>
+
+<!-- START OR SURVEY -->
+<h3 id="OR">Occupational Requirements Survey</h3>
+<p><a href="/opub/hom/ors/home.htm" aria-label="Occupational Requirements Survey Survey Overview">Survey Overview</a> The following is a sample format description of the Occupational Requirements Survey series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    ORUV1000000000001029
+	Positions       Value           Field Name
+	1-2             OR              Prefix
+	3               U               <a href="/help/def/or.htm#seasonally" aria-label="Occupational Requirements Survey Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4               V               <a href="/help/def/or.htm#requirement" aria-label="Occupational Requirements Survey Requirement">Requirement</a> Code
+	5               1               <a href="/help/def/or.htm#ownership" aria-label="Occupational Requirements Survey Ownership">Ownership</a> Code
+	6-9             0000            <a href="/help/def/or.htm#industry" aria-label="Occupational Requirements Survey Industry">Industry</a> code
+	10-12           000             <a href="/help/def/or.htm#occupation" aria-label="Occupational Requirements Survey Occupation">Occupation</a> Code
+	13-15           000             <a href="/help/def/or.htm#job_characteristic" aria-label="Occupational Requirements Survey Job characteristic">Job characteristic</a> Code
+	16-20           01029           <a href="/help/def/or.htm#estimate" aria-label="Occupational Requirements Survey Estimate">Estimate</a> Code
+	</pre>
+<p>&nbsp;</p>
+<p>To assist you in formatting series IDs, access any of the following
+  for a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/or/or.requirement" aria-label="Occupational Requirements Survey Requirement Code">Requirement Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/or/or.ownership" aria-label="Occupational Requirements Survey Ownership Code">Ownership Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/or/or.industry" aria-label="Occupational Requirements Survey Industry Code">Industry Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/or/or.occupation" aria-label="Occupational Requirements Survey Occupation Code">Occupation Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/or/or.job_characteristic" aria-label="Occupational Requirements Survey Job characteristic Code">Job characteristic Code</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/or/or.estimate" aria-label="Occupational Requirements Survey Estimate Code">Estimate Code</a></li>
+</ul>
+<!-- END OR SURVEY -->
+<p>&nbsp;</p>
+<h2>International</h2>
+<!-- START EI SURVEY -->
+<h3 id="EI">Import/Export Price Indexes</h3>
+<p><a href="/mxp/overview.htm" aria-label="Import/Export Price Indexes Survey Overview">Survey Overview</a> The
+  following is a sample format description of the Import/Export Price
+  Indexes series identifier:</p>
+<pre>	                      1         2
+	             12345678901234567890
+	Series ID    EIUCOCANMANU
+	Positions       Value           Field Name
+	1-2             EI              Prefix
+	3               U               <a href="/help/hlpseas.htm" aria-label="Import/Export Price Indexes Survey Seasonal Adjustment">Seasonal Adjustment</a> Code
+	4-5             CO              <a href="/help/def/ei.htm#indextype" aria-label="Import/Export Price Indexes Survey Index">Index</a> Code
+	6-12            CANMANU         <a href="/help/def/ei.htm#item" aria-label="Import/Export Price Indexes Survey Series Names">Series</a> Name
+	</pre>
+<p>&nbsp;</p>
+<p>To assist you in formatting series IDs, access any of the following
+  for a list of codes and their corresponding titles: </p>
+<ul>
+  <li><a href="https://download.bls.gov/pub/time.series/ei/ei.index" aria-label="Import/Export Price Indexes Survey Index codes">Index Codes</a></li>
+  <li><a href="https://download.bls.gov/pub/time.series/ei/ei.series" aria-label="Import/Export Price Indexes Survey Series Names codes">Series Names</a> </li>
+</ul>
+<!-- END EI SURVEY -->
+<p>&nbsp;</p>
+
+<p class="update"><strong>Last Modified Date: </strong>August 22, 2022</p>
+<!-- MAIN CONTENT END -->
+
+
+
+<!--no_index_start-->
+
+<!-- 2COL LAYOUT COL2 BEGIN -->
+
+		<div class="social-media"><div>Recommend this page using:</div>
+	<div><a href="javascript:void(0);" class="share_facebook"><img alt="share on facebook" src="/images/icons/facebook.png"></a><span><a href="javascript:void(0);" class="share_facebook">Facebook</a></span></div>
+	<div><a href="javascript:void(0);" class="share_twitter"><img alt="Share BLS on X, formerly referred to as Twitter" src="/images/icons/twitter.png"></a><span><a href="javascript:void(0);" class="share_twitter">Twitter</a></span></div>
+	<div><a href="javascript:void(0);" class="share_linkedin"><img alt="share on linkedin" src="/images/icons/linkedin.png"></a><span><a href="javascript:void(0);" class="share_linkedin">LinkedIn</a></span></div>
+	<!--<div><a href="javascript:void(0);" class="share_googleplus"><img src="/images/icons/google.png"></a><span><a href="javascript:void(0);" class="share_googleplus">Google+</a></span></div>-->
+</div>
+		</div>
+	</div>
+	<div class="clearfloat"></div>
+
+
+<!-- 2COL LAYOUT COL2 END -->
+
+
+
+
+
+
+<!-- WRAPPER BOTTOM BEGIN -->
+
+
+		
+		
+		</div><!-- close id="wrapper-outer" -->
+	</div><!-- close id="wrapper" -->
+</div><!-- close id="container" -->
+
+	
+
+
+<!-- WRAPPER BOTTOM END -->
+
+
+
+<!-- FOOTER LEFT BEGIN -->
+
+<footer >
+	
+<!-- Footer Nav Menu-->
+<div class="footerNav">
+<ul class="footerNavInner">
+   <li class="footerNavItem"><a href="https://www.bls.gov/">Home</a></li>
+   <li class="footerNavItem"><a href="/bls/proghome.htm">Subjects</a></li>
+   <li class="footerNavItem"><a href="/data/">Data Tools</a></li>
+   <li class="footerNavItem"><a href="/opub/">Publications</a></li>
+   <li class="footerNavItem"><a href="/bls/newsrels.htm">Economic Releases</a></li>
+   <li class="footerNavItem"><a href="/k12/" >Classroom</a></li>
+   <li class="footerNavItem"><a href="/beta/">Beta</a></li>
+</ul>
+</div>
+<!-- Footer Nav Menu-->
+<script>/*<![CDATA[*/(function(){var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;sz.src = '//siteimproveanalytics.com/js/siteanalyze_6032860.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);})();/*]]>*/</script> 
+<div id="footer-primary-wrapper">
+<div class="bootstrap standard-width">
+<div id="footer-container" class="row">
+	<div id="footer-links-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+	
+	
+<div class="bls-lftside-holder">	
+<div class="bls-logo-footer">
+<img src="/images/bls_emblem_trans.png" class="responsiveImg" alt="U.S. Bureau of Labor Statistics Logo "/><div class="d-none d-md-block clearfloat"><br><br></div>
+
+ </div>
+ <div class="address-contact-footer">
+
+<!-- FOOTER LEFT END -->
+
+
+
+<address class="footer-address"  >  
+<strong  >U.S. Bureau of Labor Statistics</strong>
+<span  >Postal Square Building</span> 
+<span  >2 Massachusetts Avenue NE</span>  
+<span  >Washington, DC 20212-0001</span>
+</address>
+
+
+
+<!-- FOOTER CENTER BEGIN -->
+
+
+
+
+
+<!-- FOOTER CENTER END -->
+
+
+
+<span class="footer-contact">  
+
+<a href="tel:12026915200" class="number" aria-label="Telephone: 1-202-691-5200">
+<span>Telephone:</span><span> 1-202-691-5200 </span>
+
+</a>
+
+<a href="tel:711" class="number" aria-label="If you are deaf, hard of hearing, or have a speech disability, please dial 7-1-1 to access telecommunications relay services">
+<span>Telecommunications Relay Service:</span><span> 7-1-1</span> 
+</a>
+
+<a href="/home.htm" aria-label="www.bls.gov" >www.bls.gov</a>
+<a href="https://data.bls.gov/forms/opb.htm?/help/hlpforma.htm" aria-label="Contact Us">Contact Us</a>
+
+</span>
+		
+
+
+
+<!-- FOOTER RIGHT BEGIN -->
+
+</div> 
+</div>
+</div>
+
+				<div id="quicklinks" class="row col-xs-12 col-sm-12 col-md-8 col-lg-8">
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-5">
+					<strong>resources</strong>
+					<a class="d-sm-none" data-toggle="collapse" href="#quicklinksli5" role="button" aria-expanded="false" aria-controls="quicklinksli5" aria-label="resources Sub Menu"></a>
+						<div class="collapse" id="quicklinksli5">
+							<ul class="d-sm-block">						
+								<li><a href="https://www.oig.dol.gov/" aria-label="Office of Inspector General (OIG) website">Inspector General (OIG)</a></li>
+								<li><a href="/bls/bls_budget_and_performance.htm" aria-label="Budget and Performance">Budget and Performance</a></li>	
+								<li><a href="https://www.dol.gov/grants" aria-label="Department of Labor Grants">Department of Labor Grants</a></li>									
+								<li><a href="/bls/no_fear_act.htm" aria-label="No Fear Act">No Fear Act</a></li>
+								<li><a href="https://www.usa.gov/" aria-label="USA.gov website">USA.gov</a></li>
+								<li><a href="https://www.vote.gov/" aria-label="Register to vote at Vote.gov" title="Public and private decision making about worker rights and benefits depend on you exercising your fundamental right. Register to vote at Vote.gov!">Vote.gov</a></li>						
+							</ul>
+						</div>
+					</div>		
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-5">
+					<strong>about the site</strong>
+					<a class="d-sm-none" data-toggle="collapse" href="#quicklinksli6" role="button" aria-expanded="false" aria-controls="quicklinksli6" aria-label="about this site Sub Menu"></a>
+						<div class="collapse" id="quicklinksli6">
+							<ul class="d-sm-block">	
+								<li><a href="/bls/sitemap.htm" aria-label="Sitemap">Sitemap</a></li>						
+								<li><a href="/bls/blsfoia.htm" aria-label="Freedom of Information Act">Freedom of Information Act</a></li>
+								<li><a href="/bls/pss.htm" aria-label="Privacy and Security Statement">Privacy and Security Statement</a></li>
+								<li><a href="/bls/disclaimer.htm" aria-label="Disclaimers">Disclaimers</a></li>
+								<li><a href="/bls/linksite.htm" aria-label="Linking and Copyright Information">Linking and Copyright Info</a></li>	
+								<li><a href="/bls/website-policies.htm" aria-label="Important Website Notices">Important Website Notices</a></li>
+								<li><a href="/help/" aria-label="Help and Tutorials">Help and Tutorials</a></li>
+								<li><a href="/bls/babel.htm" aria-label="Language Services">Babel&nbsp;Notice:&nbsp;accessing&nbsp;language&nbsp;services</a></li>
+							</ul>
+						</div>
+					</div>				
+                </div>
+				 
+</div>
+</div>
+</div>
+<div id="footer-secondary-wrapper">
+
+<div class="bootstrap standard-width">
+
+<div>
+<span>Connect With BLS</span>
+  <div class="social-media-icons"> 
+    
+           <a class="social-media-icon" href="https://twitter.com/BLS_gov" title="Connect with BLS on X, formerly referred to as Twitter" target="_blank" rel="noopener noreferrer" >
+              <!--?xml version="1.0" encoding="utf-8"?-->
+              <svg aria-hidden="true" data-prefix="fab" data-icon="twitter" class="svg-inline--fa fa-twitter fa-w-16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>
+              <span class="sr-only">Twitter</span>
+          </a>
+                  
+           <a class="social-media-icon" href="https://www.youtube.com/channel/UCijn3WBpHtx4AvSya7NER9Q" title="BLS Youtube" target="_blank" rel="noopener noreferrer" >
+              <!--?xml version="1.0" encoding="utf-8"?-->
+              <svg aria-hidden="true" data-prefix="fab" data-icon="youtube" class="svg-inline--fa fa-youtube fa-w-18"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+              <span class="sr-only">Youtube</span>
+          </a>
+          <a class="social-media-icon" href="javascript:window.open('https://public.govdelivery.com/accounts/USDOLBLS/subscriber/new ','Popup','width=800,height=500,toolbar=no,scrollbars=yes,resizable=yes'); void('');" onclick="window.status='Subscribe'; return true" onmouseover="window.status='Subscribe'; return true" onmouseout="window.status=''; return true" id="email" title="Subscribe to BLS E-mail Updates">
+              <!--?xml version="1.0" encoding="utf-8"?-->
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" class="svg-inline--fa fa-envelope fa-w-16"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+              <span class="sr-only">Email</span>
+          </a>
+        </div>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- FOOTER RIGHT END -->
+
+<!--no_index_end-->
+
+
+</body>
+</html>
