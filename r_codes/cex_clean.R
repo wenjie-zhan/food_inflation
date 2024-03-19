@@ -67,39 +67,39 @@ expd_gp <- expd_mg %>%
   select(newid, alloc, cost, ucc, quarter, year, expnmo, expnyr) %>%
   mutate(
     ucc_group = case_when(
-      ucc %/% 10000 %in% c(1) ~ "Cereals",
+      ucc %/% 10000 %in% c(1) ~ "Cereals and cereal products",
       ucc %/% 10000 %in% c(2) ~ "Bakery products",
-      ucc %/% 10000 %in% c(3) ~ "Beef",
+      ucc %/% 10000 %in% c(3) ~ "Beef and veal",
       ucc %/% 10000 %in% c(4) ~ "Pork",
-      ucc %/% 10000 %in% c(5) ~ "Lamb",
+      ucc %/% 10000 %in% c(5) ~ "Other meats",
       ucc %/% 10000 %in% c(6) ~ "Poultry",
-      ucc %/% 10000 %in% c(7) ~ "Fish",
+      ucc %/% 10000 %in% c(7) ~ "Fish and seafood",
       ucc %/% 10000 %in% c(8) ~ "Eggs",
-      ucc %/% 10000 %in% c(9) ~ "Milk",
-      ucc %/% 10000 %in% c(10) ~ "Dairy products",
+      ucc %/% 10000 %in% c(9:10) ~ "Dairy and related products",
       ucc %/% 10000 %in% c(11) ~ "Fresh fruits",
       ucc %/% 10000 %in% c(12) ~ "Fresh vegetables",
-      ucc %/% 10000 %in% c(13) ~ "Processed fruits",
-      ucc %/% 10000 %in% c(14) ~ "Processed vegetables",
-      ucc %/% 10000 %in% c(15) ~ "Sugar",
+      ucc %/% 10000 %in% c(13:14) ~ "Processed fruits and vegetables",
+      ucc %/% 10000 %in% c(15) ~ "Sugar and sweets",
       ucc %/% 10000 %in% c(16) ~ "Fat and Oil",
-      ucc %/% 10000 %in% c(17) ~ "Nonalcoholic beverages",
-      ucc %/% 10000 %in% c(18) ~ "Miscellaneous foods",
+      ucc %in% c(170110, 170210, 170510, 170530:170533) ~ "Juices and nonalchoholic drinks",
+      ucc %in% c(170310, 170410, 170520) ~ "Beverage materials including coffee and tea",
+      ucc %/% 10000 %in% c(18) ~ "Other foods",
       ucc %/% 10000 %in% c(19) ~ "FAFH",
-      ucc %/% 10000 %in% c(20) | ucc == 790420 ~ "Alcoholic beverages",
+      ucc %in% c(200511:200520) ~ "Alcoholic beverages at home",
+      ucc %in% c(200521:200536, 740420) ~ "Alcoholic beverages away from home",
       TRUE ~ "Nonfood"
     )
   ) %>%
   mutate(
     product = case_when(
-      ucc_group %in% c("Cereals", "Bakery products") ~ "Cereals and bakery",
-      ucc_group %in% c("Beef", "Pork", "Lamb", "Poultry", "Fish") ~ "Meat",
+      ucc_group %in% c("Cereals and cereal products", "Bakery products") ~ "Cereals and bakery products",
+      ucc_group %in% c("Beef and veal", "Pork", "Other meats", "Poultry", "Fish and seafood") ~ "Meats",
       ucc_group %in% c("Eggs") ~ "Eggs",
-      ucc_group %in% c("Milk", "Dairy products") ~ "Dairy",
-      ucc_group %in% c("Fresh fruits", "Fresh vegetables", "Processed fruits", "Processed vegetables") ~ "Fruits and vegetables",
-      ucc_group %in% c("Sugar", "Fat and Oil", "Miscellaneous foods") ~ "Other foods",
-      ucc_group %in% c("Nonalcoholic beverages") ~ "Nonalcoholic beverages",
-      ucc_group %in% c("Alcoholic beverages") ~ "Alcoholic beverages",
+      ucc_group %in% c("Dairy and related products") ~ "Dairy",
+      ucc_group %in% c("Fresh fruits", "Fresh vegetables", "Processed fruits and vegetables") ~ "Fruits and vegetables",
+      ucc_group %in% c("Sugar and sweets", "Fat and Oil", "Other foods") ~ "Other foods",
+      ucc_group %in% c("Juices and nonalchoholic drinks", "Beverage materials including coffee and tea") ~ "Nonalchoholic beverages",
+      ucc_group %in% c("Alcoholic beverages at home", "Alcoholic beverages away from home") ~ "Alcoholic beverages",
       ucc_group %in% c("FAFH") ~ "FAFH",
       ucc_group %in% c("Nonfood") ~ "Nonfood"
     )
@@ -107,6 +107,7 @@ expd_gp <- expd_mg %>%
 
 ### Allocate the proper month to households
 # This code assigns household to month based on the month the household purchased the most, if evenly split, then later month (by Abby)
+# We need to merge expd file to fmld file to determine the allocated month and year of expenditure because in fmld there are only start month and year of diary
 expd_mo <- expd_gp %>%
   group_by(newid, expnmo, expnyr) %>%
   summarise(cost_tot = sum(cost, na.rm = T)) 
@@ -120,59 +121,82 @@ expd_max <- expd_mo %>%
   rename(expnmo_alloc = expnmo, expnyr_alloc = expnyr)
 
 expd_mo_alloc <- expd_gp %>%
-  group_by(newid, product, expnmo, expnyr) %>%
+  group_by(newid, ucc_group, expnmo, expnyr) %>%
   summarise(cost_mo = sum(cost, na.rm = T)) %>%
   merge(expd_max[, c("newid", "expnmo_alloc", "expnyr_alloc")], by = c("newid"), all.x = T) %>%
   select(-c(expnmo, expnyr)) %>%
-  group_by(newid, product, expnmo_alloc, expnyr_alloc) %>%
+  group_by(newid, ucc_group, expnmo_alloc, expnyr_alloc) %>%
   summarise(cost = sum(cost_mo, na.rm = T))
 
 rm(expd_mo, expd_max)
   
 ### Calculate the expenditure share
 # drop hh with expenditure share == 1
-expd_hh <- expd_mo_alloc %>%
+expd_cu <- expd_mo_alloc %>%
   group_by(newid) %>%
   summarise(cost_tot = sum(cost, na.rm = T)) %>%
   merge(expd_mo_alloc, by = "newid", all.y = T) %>%
   mutate(expn_share = cost/cost_tot) %>%
   filter(expn_share != 1)
 
+# reshape expenditure data: long to wide
+cu_exp_share <- expd_cu %>%
+  select(newid, ucc_group, expnmo_alloc, expnyr_alloc, expn_share) %>%
+  pivot_wider(
+    names_from = "ucc_group",
+    values_from = "expn_share"
+  )
+
 ### Merge HH characteristics and expenditure
 # Harmonize fmld data set
-
-
-
-cex_hh <- fmld_mg %>%
-  select()
+cex_cu <- fmld_mg %>%
+  select(newid, hhid, strtmnth, strtyear, finlwt21, wtrep01:wtrep44, 
+         age_ref, age2, sex_ref, sex2, educ_ref, educa2, hisp_ref, hisp2, 
+         ref_race, race2, marital1, hrsprwk1, hrsprwk2, wk_wrkd1, wk_wrkd2, 
+         whynwrk1, whynwrk2, fam_size, fam_type, childage, fincbefx, fincbef1:fincbef5, 
+         fincbefm, rec_fs, jfs_amt, jfs_amt1:jfs_amt5, jfs_amtm, othregx1:othregx5, othregxm, 
+         alcbev, freemlx, bls_urbn, smsastat, division, region, state, occulis1, occulis2, foodtot:alcbev)
 
   
 ################################################################################
 ##### 2. Import price data
 ################################################################################
-# Average price data, by census region
-ap_dta <- read.delim("bls_price_data/ap.data.3.Food.txt") %>%
+### National CPI, by product
+# Available area code: US city average; Size A; Size B/C
+cpi_natl <- read.delim("bls_price_data/cu.data.11.USFoodBeverage.txt") %>%
   mutate(unadj = ifelse(substr(series_id, 3, 3) == "U", 1, 0),
-         area_code = substr(series_id, 4, 7),
-         item_code = substr(series_id, 8, 13)
+         monthly = ifelse(substr(series_id, 4, 4) == "R", 1, 0),
+         area_code = substr(series_id, 5, 8),
+         base82_84 = ifelse(substr(series_id, 9, 9) == "S", 1, 0),
+         item_code = substr(series_id, 9, 16)
          ) %>%
   mutate(
-    area = case_when(
-      area_code == "0000" ~ "City Average",
-      area_code == "0100" ~ "Northeast",
-      area_code == "0200" ~ "Midwest",
-      area_code == "0300" ~ "South",
-      area_code == "0400" ~ "West"
-    ),
-    product = case_when(
-      item_code ~ "",
-      
-      TRUE ~ "Nonfood"
+    ucc_group = case_when(
+      str_trim(item_code) == "SEFA" ~ "Cereals and cereal products",
+      str_trim(item_code) == "SEFB" ~ "Bakery products",
+      str_trim(item_code) == "SEFC" ~ "Beef and veal",
+      str_trim(item_code) == "SEFD" ~ "Pork",
+      str_trim(item_code) == "SEFE" ~ "Other meats",
+      str_trim(item_code) == "SEFF" ~ "Poultry",
+      str_trim(item_code) == "SEFG" ~ "Fish and seafood",
+      str_trim(item_code) == "SEFH" ~ "Eggs",
+      str_trim(item_code) == "SEFJ" ~ "Dairy and related products",
+      str_trim(item_code) == "SEFK" ~ "Fresh fruits",
+      str_trim(item_code) == "SEFL" ~ "Fresh vegetables",
+      str_trim(item_code) == "SEFM" ~ "Processed fruits and vegetables",
+      str_trim(item_code) == "SEFR" ~ "Sugar and sweets",
+      str_trim(item_code) == "SEFS" ~ "Fat and Oil",
+      str_trim(item_code) == "SEFN" ~ "Juices and nonalchoholic drinks",
+      str_trim(item_code) == "SEFP" ~ "Beverage materials including coffee and tea",
+      str_trim(item_code) == "SEFT" ~ "Other foods",
+      str_trim(item_code) == "SEFV" ~ "FAFH",
+      str_trim(item_code) == "SEFW" ~ "Alcoholic beverages at home",
+      str_trim(item_code) == "SEFX" ~ "Alcoholic beverages away from home",
+      str_trim(item_code) == "SA0L1" ~ "Nonfood", # All items less food
+      TRUE ~ "Delete"
     )
-  ) 
-
-
-# CPI data for FAH/FAFH
+  )%>%
+  filter(ucc_group != "Delete" & year %in% c(2010:2022))
 
 
 
